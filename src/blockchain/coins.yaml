@@ -1,0 +1,22 @@
+"CLO":
+  "currency": Callisto Coin
+  "fullName": Callisto Network
+  "RPC": https://clo-geth.0xinfra.com
+  "minValue": 1
+  "csContract": "0xd813419749b3c2cDc94A2F9Cfcf154113264a9d6"
+  "platform": ether
+  "decimals": 2
+  "projectLink": <a href="https://callisto.network">Callisto Network</a>
+  "walletLink": https://wallet.callisto.network
+  "walletName": Callisto Wallet
+  "txExplorer": https://explorer2.callisto.network/tx/
+  "txInterval": 100
+  "info": "Callisto Network is a decentralized open source crypto platform based on the go-Ethereum source code with
+its own cryptocurrency ‘CLO’. The main goal of Callisto is to research and develop a reference implementation of a
+self-sustaining, self-governed and self-funded blockchain ecosystem and development environment.
+
+
+First Cold Staking Coin
+
+Cold Staking is a protocol that rewards long-term coin holders for holding their CLO coins. Cold Staking is not related
+to PoS nor a consensus mechanism. Cold stakers receive passive income for holding their coins."

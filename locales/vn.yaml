@@ -1,0 +1,682 @@
+greeting: '👋 Xin chào!
+
+Tôi là Crypto.Bot 🤖
+
+Tôi là người quản lý AirDrops và Tips trong Crypto Coins!'
+language: 'Cài đặt ngôn ngữ tiếng Anh cho @${botName}'
+languagePrivate: 'Cài đặt ngôn ngữ tiếng Anh'
+help: 'ℹ <b>Trợ giúp</b>
+
+
+AirDrop và Tipping bot cho Crypto Coins
+
+
+Một sản phẩm của <a href="https://callisto.network">Callisto Network</a>
+
+Hỗ trợ coins/chains (CLO, ETH, ETC, BNB, LTC, BTC)
+
+Hỗ trợ tokens ERC20, BEP2  (chẳng hạn như USDT, NOW)
+
+
+Bot discussion thread: <a href="https://t.me/CryptoTheBot_support">Crypto.Bot_Support</a>
+
+
+WARNING: Vui lòng lưu trữ private key ở nơi an toàn, trong trường hợp có sự cố
+với Telegram hoặc tip bot bạn có thể tương tác với ví của mình thông qua private key này
+
+
+/start — Khởi động hộp thoại với Bot'
+helpGroup: '🤖 Crypto Bot 🤖 <b>Trợ giúp</b> ℹ
+
+
+📌 Crypto Coins airDrop và tipping bot
+
+
+📌 Một sản phẩm của <a href="https://callisto.network">Callisto Network</a>
+
+Hỗ trợ coins/chains
+
+(CLO, ETH, ETC, BNB, LTC, BTC, USDT, NOW)
+
+
+❤️ Hãy đăng ký bot trước khi sử dụng tại @${botNamae}
+
+
+- Dùng lệnh /tip để tip
+
+- Dùng lệnh /give hoặc /giveaway để bắt đầu phát thưởng
+
+- Dùng lệnh /rain để AirDrop
+
+- Dùng lệnh /rtrain để AirDrop dựa trên các retweets
+
+- Dùng lệnh /stat để xem thống kê
+
+- Dùng lệnh /pot để tham gia xổ số
+
+- Dùng lệnh /help với tên lệnh để nhận thêm thông tin trợ giúp
+
+- Dùng lệnh /tip help hoặc /give help sẽ hoạt động)'
+helpGroupAdmin: '🅰️ các lệnh chỉ dành cho admins 🅰️
+
+- Dùng lệnh /locale để đổi nguôn ngữ
+
+- Dùng lệnh /defcoin để cài đặt coin mặc định cho group hiện tại
+
+- Dùng lệnh /deletereply để Tắt/Mở chế độ tự động xóa messages
+
+- Dùng lệnh /permitlottery để tắt trò chơi xổ số
+
+- Dùng lệnh /potnotify
+
+- Dùng lệnh /blacklist để block người dùng tham gia rain
+
+- Dùng lệnh /adminonly to limit the use of the bot only to a group of admins
+
+- Dùng lệnh /whitelist to manage rain whitelists'
+tipHelp: '/tip - tip user(s) với số lượng coins tùy chọn
+
+
+Nếu được gọi bằng cách reply một message thì chủ message sẽ là người nhận được tip
+Trường hợp đặc biệt: bạn có thể thực hiện tiền boa với vé số (xem trợ giúp về lệnh POT để biết chi tiết)
+
+/reward lệnh này có thể được sử dụng thay cho lệnh /tip (chức năng giống nhau)
+
+
+Params (space separated, in any order):
+
+- <i>giá trị</i> / số (nếu bỏ qua thì giá trị mặc định sẽ được sử dụng)
+
+- <i>mã coin</i> / chuỗi (nếu bỏ qua thì coin mặc định cho group sẽ được sử dụng)
+
+- <i>username</i> / chuỗi (hoặc danh sách tên tài khoản người dùng)
+
+- <i>pot</i> (sử dụng từ đặc biệt POT để kiếm tiền với vé xổ số, thay vì tiền xu)
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Examples: /tip  @user1 @user2 10 LTC
+
+/tip @user1 5
+
+/tip CLO
+
+/tip @user1 100 clo pot - (mua 2 vé xổ số clo cho Người dùng1)'
+giveHelp: '/give (or /giveaway) - giveaway coins trong một group cho người đầu tiên claim
+
+
+Params (space separated, in any order):
+
+- <i>giá trị</i> / số (nếu bỏ qua thì giá trị mặc định sẽ được sử dụng)
+
+- <i>mã coin</i> / chuỗi (nếu bỏ qua thì coin mặc định cho group sẽ được sử dụng)
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Examples: /give 0.5 BTC
+
+/giveaway CLO
+
+/give 100'
+rainHelp: "/rain - rải mưa N coins cho ngẫu nhiên X người dùng
+
+
+Params (space separated, in any order):
+
+- <i>giá trị</i> / số (nếu bỏ qua thì giá trị mặc định sẽ được sử dụng)
+
+- <i>mã coin</i> / chuỗi (nếu bỏ qua thì coin mặc định cho group sẽ được sử dụng)
+
+- <i>SỐ_THÀNH_VIÊN</i> / số (nếu bỏ qua thì hoặc ALL hoặc MAX được sử dụng - giá trị được chia nhỏ nhất có thể cho mỗi thành viên để tính ra só lượng thành viên được nhận).
+
+- <i>WhiteListName</i> / string (make rain for users from white list named WhiteListName )
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Lưu ý 👉 Nếu 2 số được cung cấp và giá trị tối thiểu cho coin là số nguyên - thì số lớn nhất trong 2 số sẽ được sử dụng làm GIÁ TRỊ
+Nếu 1 trong 2 là số thập phân thì nó được sử dụng như là GIÁ TRỊ.
+  Người dùng được tính trong cuộc trò chuyện hoặc nhóm hiện tại. Nếu số người dùng ít hơn số lượng truyền vào - thì GIÁ TRỊ được chia đều cho những người dùng này.
+
+
+Examples:
+
+/rain 10 20 CLO = (tặng 20 clo cho ngẫu nhiên 10 người dùng)
+
+/rain 1000 = (tặng 1000 clo (nếu mặc định là CLO) cho ngẫu nhiên 1000 người dùng, giá trị nhỏ nhất cho CLO là 1, nếu chỉ tìm thấy 100 người dùng đã đăng ký trong group thì mỗi người sẽ nhận dược 10 clo)
+
+/rain = (chia 10 (mặc định) clo (mặc định) cho 10 (10 chia 1) người dùng"
+localeHelp: "/locale - thay đổi locale cho messages của bot
+
+
+Params:
+
+- <i>mã locale</i> / chuỗi (locale code)
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Examples:
+
+/locale en
+
+/locale ru"
+defcoinHelp: "/defcoin - cài đặt coin mặc định cho group
+
+Coin này được sử dụng trong các lệnh khác nếu không được chỉ định bởi người dùng.
+Mỗi chat/group sẽ có một coin mặc định riêng
+
+
+Params:
+
+- NO-params (xem cài đặt mặc định hiện tại)
+
+- <i>mã coin</i> / chuỗi (coin code)
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Examples:
+
+/defcoin CLO
+
+/defcoin"
+delRepHelp: "/deletereply - Bật/Tắt lựa chọn tự động xóa.
+Bot sẽ xóa (hoặc không) sau một khoảng thời gian.
+
+
+Params:
+
+- NO-params (xem cài đặt mặc định hiện tại)
+
+- <i>giá trị</i> / chuỗi hoặc số (ON, OFF, TRUE, FALSE, 0, 1 là các giá trị được chấp nhận)
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Examples:
+
+/deletereply on
+
+/deletereply 0"
+permLotHelp: "/permitlottery - Bật/Tăt chức năng xổ số cho nhóm chat hiện tại.
+
+Nếu bạn muốn hạn chế người dùng sử dụng tính năng xổ số trong nhóm chat hiện tại.
+
+
+Params:
+
+- NO-params (xem cài đặt mặc định hiện tại)
+
+- <i>giá trị</i> / chuỗi hoặc số (ON, OFF, TRUE, FALSE, 0, 1 là các giá trị được chấp nhận)
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Examples:
+
+/permitlottery off
+
+/permitlottery true"
+blacklistHelp: "/blacklist - thêm người dùng vào danh sách đen, người này sẽ không còn nhận được rain nữa.
+
+Người dùng có thể được thêm vào danh sách đen nếu anh ta là thành viên của nhóm chat hiện tại. Nhưng hạn chế là toàn cầu, nó hoạt động cho tất cả các nhóm chat.
+Để xóa người dùng khỏi danh sách đen, hãy sử dụng lệnh /unblacklist. Lệnh này phải được gọi từ cùng một nhóm chat.
+Lệnh có thể được gọi bằng cách reply một message
+
+
+
+Params:
+
+- <i>userName</i> / @chuỗi (hoặc hoặc danh sách các thành viên)
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Examples:
+
+/blacklist @user1 @user2
+
+/unblacklist @user2"
+statHelp: "/stat - hiển thị số liệu thống kê cho các hoạt động của bot (tất cả hoặc chỉ một coin)
+
+Params:
+
+- NO-params (xem tất cả các thống kê)
+
+- <i>mã coin</i> / chuỗi (mã coin) - để xem thống kê cho một coin
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Examples:
+
+/stat
+
+/stat ETC"
+potHelp: "/pot - xem thông tin quay xổ số hiện tại, hoặc tham gia xổ số (mua vé)
+
+Lotteries are drawn every week on Friday at 07:00 PM (UTC). Giá vé tối thiểu - 50 lần giá trị tối thiểu của một coin
+(50 coins cho CLO chẳng hạn). Mọi người dùng có thể mua bao nhiêu vé tùy thích. Người chiến thắng được chọn ngẫu nhiên.
+Người chiến thắng đầu tiên nhận được 70% tiền cược, thứ hai 20%, người cuối cùng 10%. Quản trị viên có thể vô hiệu hóa tính năng xổ số trong group/chat của mình.
+Vì vậy, trong cuộc trò chuyện đó, bạn không thể mua vé hoặc xem trạng thái của giải.
+Trường hợp đặc biệt mua vé: mua vé cho người dùng khác làm quà tặng (nếu lệnh được gọi trong tin nhắn Trả lời,
+nếu @UserName cung cấp). Trong trường hợp này Giá trị Pot có thể bị bỏ qua - minValue mặc định sẽ được sử dụng (1 vé cho
+mỗi người dùng được liệt kê)
+
+
+
+Params:
+
+- NO-params (xem giải xổ số hiện tại bởi coin được cài đặt mặc định cho group/chat)
+
+- <i>mã coin</i> / chuỗi (mã coin) - xem giải xổ số hiện tại bởi coin được chỉ định
+
+- <i>giá trị</i> / số - giá trị mua vé của bạn (phải không thấp hơn giá vé tối thiểu). Bạn có thể mua nhiều vé bằng một
+lệnh - chỉ cần nhập giá trị nhân với số lượng vé bạn muốn
+
+- <i>userName</i> / @string (hoặc danh sách tên người dùng - để gửi vé làm quà tặng cho người dùng)
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Examples:
+
+/pot
+
+/pot ETH
+
+/pot 100 CLO - (mua 2 vé xổ số bằng CLO)
+
+/pot @User1 @User2 - (mua 1 vé trong xổ số tiền xu mặc định cho mỗi người dùng, nếu họ được đăng ký trong bot)"
+rtrainHelp: "/rtrain - tặng N coins cho những người dùng retweet một tweet
+
+
+If no retweets target is specified - first call of rtrain will only start retweets counter. In this case second call
+with same tweet link will perform rain by already collected retweets list. If retweets target = 0 - rtarain runs
+immediately. If retweets target was set in previous command, and new command have target = 0 - rtarain runs immediately,
+and all other targets are ignored, retweets collection stops. If no targets was specified or all targets reached -
+retweets collection stops.
+Nếu không có mục tiêu retweets được chỉ định - lần gọi đầu tiên của rtrain sẽ chỉ bắt đầu bộ đếm retweets. Trong trường hợp này, lần gọi thứ hai
+với cùng một liên kết tweet sẽ thực hiện rain bằng danh sách retweets đã được thu thập. Nếu retweets target = 0 - rtarain sẽ chạy
+ngay lập tức. Nếu target retweets được đặt trong lệnh trước đó và lệnh mới có target = 0 - rtarain sẽ chạy ngay lập tức
+và tất cả các targets khác sẽ bị bỏ qua, retweets sẽ dừng việc thu thập lại. Nếu không có targets nào được chỉ định hoặc tất cả các targets đã đạt được -
+retweets sẽ dừng việc thu thập lại.
+
+
+
+Params (space separated):
+
+- <i>giá trị</i> / number (cần thiết cho lần gọi thứ hai hoặc cho auto-rain, lần đầu tiên được tìm thấy trong số params)
+
+- <i>mã coin</i> / string (nếu bị bỏ qua - coin mặc định của group sẽ được sử dụng)
+
+- <i>tweet_link</i> / url (liên kết đến tweet)
+
+- <i>retweets</i> / number(s)
+
+- <i>help</i> (hiển thị trợ giúp này)
+
+
+Examples:
+
+/rtrain https://twitter.com/CallistoSupport/status/1255634622240743426 = (bắt đầu thu thập retweets cho tweet ID = 1255634622240743426)
+
+/rtrain https://twitter.com/CallistoSupport/status/1255634622240743426 1000 clo = (nếu được gọi sau lệnh trước - gọi rain cho các retweets đã được thu thập)
+
+/rtrain {url} 1000 clo 0 = (chạy rain ngay lập tức)
+
+/rtrain 1000 clo {url} 100 200  = (bắt đầu thu thập retweets, chạy rain khi đạt được 100 retweets, và chạy cái tiếp theo khi đạt 200 retweets, mỗi rain sẽ tặng 1000 clo)"
+mainMenu: 'ℹ Menu Chính'
+settingsMenu: '⚙️ Menu Cài Đặt
+
+
+Here you can change some default options:
+
+- 🛠 Giá trị mặc định cho các hoạt động tip/give/rain
+
+- 🐦 Twitter name - để liên kết đến account Twitter
+
+- 💬 Chuyển messages của tôi sang ngôn ngữ của bạn (nếu có)
+
+- 📝 Xem lịch sử ví của bạn'
+stakingMenu: '🏦 Cold Staking
+
+
+Callisto (CLO) coins trong ví của bạn có thể được staked để tạo thu nhập thụ động 💰'
+earnCloMessage: '💰 Earn money for free 💰
+
+
+Tham gia nhóm telegram của Callisto Network (@CallistoNet)
+và và theo dõi các cơ hội kiếm tiền 🍀'
+languageMessage: 'Chọn ngôn ngữ 💬'
+depositMessage: 'Chọn coin, mà bạn muốn <b>nạp</b> 👛'
+defsMessage: 'Chọn coin, mà bạn muốn cài đặt <b>giá trị mặc định</b> 🛠'
+prkMessage: 'Chọn coin để xem ví <b>private key</b> 🔑
+
+WARNING: Vui lòng lưu lại private key của bạn ở một nơi an toàn, trong trường hợp có điều gì đó xảy ra
+với telegram hoặc bot tip, bạn sẽ có thể tiếp tục sử dụng ví của mình với bất kỳ ví nào khác'
+withdrawMessage: 'Chọn coin, mà bạn muốn <b>rút</b> 👉'
+userExists: 'Đã đăng ký
+
+Thử kiểm tra số dư 💰 của bạn và các chức năng khác'
+userNotExists: 'Không thể thực thi lệnh của bạn
+
+Vui lòng đăng ký ✅'
+userRegistered: 'Người dùng mới đã đăng ký ✅
+
+Truy cập menu <code>👛 nạp</code> để lấy địa chỉ ví của bạn'
+depositCoinMessage: "💎 Tên dự án: <b>${name}</b>
+
+🌎 Trang mạng: ${link}
+
+👛 Địa chỉ ký gửi cho <b>${coin}</b>:"
+pkCoinMessage: "💎 Tên dự án: <b>${name}</b>
+
+🌎 Ví web: ${link}
+
+🔑 Đây là private key (PK) ví <b>${coin}</b>:"
+
+balanceMessage: 'Số dư của bạn 💰'
+balanceAll: "Nhận tất cả số dư tiền"
+balMessage: 'Chọn đồng tiền mà bạn muốn xem <b>Số dư</b> 💰'
+
+# Withdraw dialog
+selectWithdrawAddress: 'Vui lòng chọn địa chỉ ví cần gửi đến để Rút'
+withdrawAddressManual: 'Nhập thủ công'
+withdrawVlueManual: 'Nhập giá trị thủ công'
+enterAddress: 'Vui lòng cung cấp địa chỉ ví cần gửi đến'
+enterValue: 'Vui lòng cung cấp giá trị coins (vui lòng nhập số)'
+invalidAddress: 'Địa chỉ rút không hợp lệ'
+invalidValue: 'Giá trị không hợp lệ - không phải là số'
+minWithdrawWarning: 'Giá trị nhỏ nhất là <code>${minval} ${coin}</code>'
+notEnoughValue: 'Giá trị quá lớn. Bạn chỉ có <code>${val} ${coin}</code>'
+yesBtn: '✅ Đồng Ý'
+cancelBtn: '❌ Hủy'
+enterWithdrawValue: 'Địa chỉ để Rút:
+
+<code>${address}</code>
+
+Vui lòng chọn giá trị để rút'
+withdrawConfirmation: 'Vui lòng xác nhận lệnh rút của bạn
+
+Target Address: <code>${address}</code>
+
+Value: <code>${value} ${token}</code>
+
+You will get nearly: <code>${finValue} ${token}</code> (phí rút = ${fee}%)
+
+Xác nhận Withdraw ❓'
+withdrawSent: 'Lệnh rút đã được gửi đi
+
+TxHash: <a href="${txExplorer}${hash}">TxHashLink</a>'
+
+noOperations: 'Chưa có hoạt động nào'
+sent: 'Đã gửi'
+received: 'Đã nhận'
+
+# Defaults dialog
+enterDefaults: 'Nhập 2 số cách nhau bởi dấu khoảng trắng
+
+Số đầu tiên sẽ được sử dụng trong <code>tip|give</code>
+
+Số thứ hai - trong <code>rains</code>'
+welcomeDefaults: 'Mặc định (<code>tip</code>|<code>give</code>) giá trị = <code>${tipVal} ${coinCode}</code>
+
+Mặc định (<code>rain</code>) giá trị = <code>${rainVal} ${coinCode}</code>
+
+Bạn có thể nhập giá trị mới để được sử dụng làm mặc định'
+errorDefaults: 'Nhập sai số'
+defaultsSuccess: 'Giá trị mặc định đã thay đổi thành công'
+
+# Staking dialog
+notStaking: 'Vẫn chưa staking'
+wordDays: 'Ngày'
+wordHours: 'Giờ'
+stakeNotEnough: 'Không đủ coins để Stake'
+cancelStartStake: 'Đã hủy'
+stakeValueMsg: 'Vui lòng chọn giá trị để gửi vào hợp đồng staking'
+stakeRoundWait: 'Vòng Staking đang được tiến hành. Xin vui lòng chờ'
+stakeWithdrawWarning: 'Bạn sẽ rút stake của bạn từ hợp đồng staking lạnh: <code>0xd813419749b3c2cDc94A2F9Cfcf154113264a9d6</code>
+
+Minimum balance in your address to withdraw: <code>0.1 CLO</code>
+
+❗️Warning: Sau khi rút, bạn sẽ nhạn lại tất cả các khoảng đầu tư ban đầu và tất cả phần thưởng staking. Vòng staking hiện tại sẽ bị hủy'
+stakeClaimWarning: 'Bạn sẽ nhận được phần thưởng từ hợp đồng staking lạnh: <code>0xd813419749b3c2cDc94A2F9Cfcf154113264a9d6</code>
+
+Minimum balance in your address to claim this reward: <code>0.1 CLO</code>
+
+❗️Warning: Sau khi nhận được phần thưởng, tiền của bạn sẽ bị đóng băng trong vòng 27 ngày và bạn sẽ không thể nhận phần thưởng mới hoặc rút tiền của bạn trong suốt thời gian này.
+
+❗️Warning: Yêu cầu rút phần thưởng của bạn không trả lại khoản đầu tư ban đầu cho bạn và nó sẽ tự động stake số tiền của bạn trở lại. Để rút hết, nhấn ♻️ <code>rút</code>'
+stakeFinalWarning: 'Bạn sắp đóng băng ${coinName} của bạn để Cold Staking
+
+You are about to send ${aValue} ${coinName} to the staking contract: 0xd813419749b3c2cDc94A2F9Cfcf154113264a9d6
+
+Bạn có chắc muốn làm điều này?'
+stakeActiveWarning: 'Bạn đã có tiền trong hợp đồng đặt staking. Bạn sẽ không nhận được phần thưởng staking nếu bạn
+tạo một lệnh nạp mới vào hợp đồng. Trước tiên bạn nên rút phần thưởng staking của bạn ra hoặc sử dụng một
+tài khoản khác để thực hiện một lệnh staking mới'
+stakeStartWarning: 'Tiền của bạn sẽ bị khóa trong 27 ngày và bạn sẽ không thể rút trong thời gian bị khóa
+
+Bạn cần phải trả phí giao dịch để bắt đầu staking, rút stake của bạn, hoặc yêu cầu phần thưởng staking!
+Đảm bảo rằng bạn còn đủ tiền trong số dư của mình để thực hiện các giao dịch này.
+Phần thưởng staking rất khó đoán và số lượng phần thưởng phụ thuộc vào thời gian mà bạn yêu cầu nó'
+stakingInfoMsg: 'Số dư ví: <code>${balance} ${coinName}</code>
+
+Staking value: <code>${val} ${coinName}</code>
+
+Reward: <code>${reward} ${coinName}</code>
+
+Progress: <code>${prgrs}%</code> (round ${round})
+
+Staking round ends: <code> ${stkDate}</code>
+
+${wrd} to complete: <code>${days}</code>'
+
+# Twitter dialog
+enterTwitter: 'Nhập twitter của bạn @UserName.'
+noteTwitter: 'Tài khoản này sẽ được sử dụng để kiểm tra retweets của bài đăng cộng đồng - vì vậy bạn có thể nhận được Rains'
+linkedTwitter: 'Đã liên kết với tài khoản twitter: '
+anotherTwitter: 'Bạn có thể liên kết tài khoản khác'
+notInTwitter: 'tài khoản không được tìm thấy trên Twitter!'
+dupTwitter: 'Tài khoản Twitter này đã được sử dụng (liên kết)
+
+Liên kết mới là không thể'
+linkSuccess: 'Đã liên kết đến tài khoản twitter của bạn thành công!'
+
+# Main Buttons
+registerButton: '✅ Đăng ký'
+helpButton: 'ℹ Trợ giúp'
+balanceButton: '💰 Số dư'
+depositButton: '👛 Nạp'
+withdrawButton: '👉 Rút'
+settingsButton: '⚙️ Cài đặt'
+coldStakingButton: '🏦 Staking Lạnh'
+mainMenuButton: '⬅️ Menu Chính'
+earnCloButton: 'Kiếm CLO coins 💵'
+
+# Settings Buttons
+defaultValue: '🛠 Giá trị mặc định'
+twitterButton: '🐦 Tên Twitter'
+historyButton: '📝 Lịch sử hoạt động'
+languageButton: '💬 Ngôn ngữ'
+pkButton: '🔑 PrivateKey'
+
+# Staking Buttons
+statusButton: '🔋 Trạng thái'
+startStkButton: '📥 Bắt đầu Staking'
+claimStkButton: '💵 Yêu cầu phần thưởng'
+withdrawStkButton: '♻️ Rút'
+
+# Group buttons
+claimBtn: 'Yêu cầu'
+
+# Stat messages
+statHeader: '📊 <b>Thống kê bởi <u>${coinName}</u></b>'
+statTips: '☕️ Tips: <b>${val}</b> ${coinName}'
+statGivs: '💸 Giveaways: <b>${val}</b> ${coinName}'
+statRains: '🌧 Rains: <b>${val}</b> ${coinName}'
+statLott: '🌧 Lotteries: <b>${val}</b> ${coinName}'
+statSum: ' = SUM : <b>${sum}</b> ${coinName} = '
+statAllHeader: '📊 <b>Thống kê hợp nhất</b>'
+statAllTips: '☕️ Tips: <b>${val}</b> lần'
+statAllGivs: '💸 Giveaways: <b>${val}</b> lần'
+statAllRains: '🌧 Rains: <b>${val}</b> người nhận'
+statAllLott: '🌧 Lotteries: <b>${val}</b> pots'
+statAllSum: ' = SUM : <b>${sum}</b> hoạt động = '
+statMemo: 'sử dụng /stat CoinName để nhận thống kê bởi một coin '
+
+# Lottery messages
+potWaitNext: 'Xổ số hiện tại đã kết thúc. Vui lòng đợi ${irv} giờ để tiếp tục vòng kế tiếp!'
+potHeader: '🏆 <b>[${coinName}] 🏆 Lottery Pot</b> 🍯'
+potValue: '🍯 Đặc cược hiện tại: ${value} ${coinName}' # ${cnt} vé /
+potDeadLine: '⏰ Hạn chót : ${date}'
+potDrawDate: '📅 Ngày bốc thăm : ${date}'
+potEmpty: '🚫 Xổ số hiện tại đang rỗng'
+ticketBtn: '1️⃣ vé'
+ticket3Btn: '3️⃣ vé'
+ticket10Btn: '1️⃣0️⃣ vé'
+ticket50Btn: '5️⃣0️⃣ vé'
+ticket100Btn: '1️⃣0️⃣0️⃣ vé'
+potHaveTickets: 'Bạn có ${count} POT vé ${coinName} xổ số'
+potMinValue: 'Giá trị nhỏ nhất cho Pot = ${minValue} ${coinName}'
+potBought: 'Người dùng ${userName} đã mua ${cnt} Pot vé 🎟 cho ${value} ${coinName}'
+potBoughtFor: 'Người dùng ${userName} đã mua ${cnt} Pot vé 🎟 cho ${value} ${coinName} - Gift for ${destUser}'
+potButtonBuy: 'Đang mua ${cnt} vé. Vui lòng đợi giao dịch hoàn tất'
+potDisabled: 'Xổ số đã bị vô hiệu hóa trong chat/group này'
+potLastWeek: '--- 💫 Kết quả tuần trước 💫 ---'
+potWinner: '${place} 🎟 number = ${ticket} 🎉
+
+🏅 Người dùng ${userName} CHIẾN THẮNG ${value} ${coinName} Xổ Số trong tuần 🎰 với ${cnt} vé!'
+potSpinning: 'Vòng quay Xổ Số 💫
+
+Number of entries in Lottery: ${entries}'
+
+potRules: '📝 <b>/pot help</b> - for more info
+
+👇 use buttons to buy tickets 👇'
+
+# Groups messages
+groupOnly: 'Hầu hết các lệnh chỉ làm việc trong Chats và Channels'
+blacklistBot: 'Xin lỗi. Không thể thêm BOT vào danh sách đen !'
+blacklisted: 'Người dùng ${name} đã được thêm vào danh sách đen'
+blacklistAllready: 'Người dùng  ${name} đã có trong danh sách đen'
+blacklistNotMember: 'Người dùng ${name} không phải là thành viên trong Group này - không thể thêm vào danh sách đen'
+unblacklistChat: 'Người dùng ${name} có thể được gỡ khỏi danh sách đen trong Chat, nơi mà họ bị đưa vào danh sách đen'
+unblacklisted: 'Người dùng ${name} đã được gỡ bỏ khỏi danh sách đen'
+notInBlacklist: 'Người dùng ${name} KHÔNG có trong danh sách đen'
+tippingBot: 'KHông thể tip cho BOT'
+nobodyToTip: "Không xác định được người nhận TIP.
+
+Reply message người dùng hoặc đề cập @UserName trong thông số của lệnh"
+usersNotRegistered: 'Người dùng ( ${list} ) chưa đăng ký bot. Yêu cầu họ đăng ký tại${bot}'
+pleaseRegister: "Để sử dụng các lệnh của bot vui lòng đăng ký ${botName}"
+notEnoughTx: 'Bạn không có đủ <code>${coin}</code> để thực hiện các giao dịch
+
+Bạn có = <code>${balance} ${coin}</code>. Bạn cần = <code>${value} ${coin}</code>'
+notEnoughTxFee: 'Bạn không có đủ <code>${coin}</code> cho phí giao dịch'
+emptyList: "Không thể tạo Rain - danh sách người dùng rỗng"
+rainListHeader: '${userName} gọi Rain với ${rainValue} ${coinName} cho ${count} người dùng:'
+rainListItem: '${pos}. ${name} nhận ${value} ${coinName}'
+preparingRain: 'Chuẩn bị rain cho ${count} người dùng'
+tooLowValue: 'Giá trị quá bé được cung cấp: <code>${value} ${coin}</code>
+
+Min value for this command: <code>${minValue} ${coin}</code>'
+tooManyUsers: 'Số lượng người dùng quá lớn. Giá trị cho mỗi người dùng không nên nhỏ hơn <code>${minValue} ${coin}</code>'
+userTipped: '${userName} tipped <code>${value} ${coin}</code> to ${userNameR}'
+userGetTipped: 'Bạn đã nhận được <code>${value} ${coin}</code> từ ${userName}'
+userGetRained: 'Bạn đã nhận được <code>${value} ${coin}</code> từ rain bởi ${userName}'
+userGetLottery: 'Chúc mừng, Người thắng cuộc 🎉 Bạn đã nhận được ${value} ${coin} từ giả Xổ Số 🎰 hàng tuần!'
+
+twitTarget: 'Đã đạt ${cnt} retweets cho tweet
+
+${link}'
+twitRain: 'Chuẩn bị Rain cho ${cnt} retweets của tweet
+
+${link}'
+noTwitLink: 'rtrain không thể hoạt động mà không có link tweet'
+wrongTwitLink: 'Link tweet không đúng'
+
+groupNoLocale: 'Cung cấp mã ngôn ngữ'
+groupCoinSet: 'Coin mặc định cho group này là ${coin}'
+groupValueOn: 'ON'
+groupValueOff: 'OFF'
+groupPermitLottery: "Trạng thái các bot xổ số trong group này:"
+groupDeleteReply: "Tin nhắn của bot tự động xóa là"
+unsupportedCoin: 'Không hỗ trợ coin: ${coin}'
+test: 'Test message'
+giverOnly: 'Chỉ gửi tặng thưởng mới có thể Hủy giveaway'
+selfClaim: 'Bạn không thể yêu cầu giveaway của bạn - nhưng bạn có thể Hủy'
+waitClaim: 'Đợi ${hours} giờ cho lần yêu cầu kế tiếp'
+claimedBy: 'Được yêu cầu bởi ${userName}'
+notRegisteredClaim: 'Bạn không thể yêu cầu. Nói chuyện với bot và đăng ký'
+twitInfo: '<b>TweetID:</b> <code>${twid}</code>
+
+<b>Started:</b> <code>${date}</code>
+
+<b>Award:</b> <code>${value} ${token}</code>
+
+<b>Targets:</b> <code>${tgt}</code>
+
+<b>Status:</b> <code>${stt}</code>
+
+<b>Retweets collected:</b> <code>${count}</code>'
+giveMessage: 'Người dùng ${userName} đang tặng <code>${value} ${coinName}</code>.
+
+Nhấn nút <u>Yêu cầu</u> để yêu cầu nó.'
+
+# Security Dialog
+notLockedMessage: "Ví của bạn chưa được mã hóa. Nút Mở Khóa không thể thực hiện"
+passwordWarning: "⚠️Khi bạn cài đặt Mật Khẩu, mỗi thao tác Rút hoặc Xuất PK sẽ yêu cầu nhập Mật Khẩu này.
+Mật Khẩu là KHÔNG XÓA ĐƯỢC và bạn chỉ có thể THAY ĐỔI nó.
+
+Bạn có muốn tiếp tục ?"
+encryptdWarning: "⚠️ Nếu bạn mã hóa private key  của mình - bạn có thể mất quyền truy cập vào ví của bot trong trường hợp bạn bị mất /
+quên mật khẩu của mình.
+
+⚠️ Thao tác này không thể hoàn tác!
+
+⚠️ Vui lòng sao lưu (xuất) tất cả các private key của bạn từ bot và lưu trữ chúng an toàn trước khi thực hiện mã hóa!
+
+⚠️ Ngoài ra, xin lưu ý rằng bạn sẽ phải <b> Mở khóa </b> ví của bạn để thực hiện các hoạt động như TIP hoặc POT. Sau
+mở khóa bạn sẽ có 1 giờ cho các hoạt động, sau đó ví sẽ bị khóa lại.
+
+❓ Bạn có chắc chắn mình muốn tiếp tục ❓"
+enterPassword: "Nhập mật khẩu của bạn"
+enterNewPassword: "OK.  Nhập mật khẩu mới"
+enterOldPassword: "Nhập mật khẩu hiện tại"
+repeatPassword: "Vui lòng, nhập lại mật khẩu của bạn"
+shortPassword: "Mật khẩu phải ít nhất 9 ký tự"
+longPassword: "Mật khẩu không được vượt quá 28 ký tự"
+pwdNotMatch: "Mật khẩu không trùng khớp"
+setPwdSuccess: "Cài đặt mật khẩu thành công"
+cantCheckPassword: "Có lỗi xảy ra. Không thể kiểm tra mật khẩu của bạn"
+wrongPassword: "Mật khẩu không đúng"
+encryptError: "Mã hóa bị lỗi"
+walletLocked: "Ví của bạn đã bị khóa. Vui lòng mở khóa nó trước tại @${botName}"
+encryptedSuccess: "Mã hóa thành công"
+decryptError: "Giải mã không thành công. Mật khẩu không đúng."
+unlockSuccess: "Đã mở khóa thành công cho 1 giờ sử dụng"
+securityMessage: "🛡 Menu Bảo mật
+
+
+Here you can protect your Wallets:
+
+- 🎛 Cài đặt Mật Khẩu - để bảo vệ thao tác Rút
+
+- 🔐 Mã hóa PK - mã hóa private keys của bạn, được lưu trữ tại bot DB
+
+- 🔑 Xuất private keys của bạn"
+
+securityButton: "🛡 Bảo mật"
+
+# Security Buttons
+setPwdButton: "🎛 Cài đặt Mật Khẩu"
+changePwdButton: "🎛 Đổi Mật Khẩu"
+encryptButton: "🔐 Mã hóa PK"
+unlockButton: "🔓 Mở khóa"
+
+groupPermitPotNotify: "Pot thông báo về trạng thái nhóm này:"

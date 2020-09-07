@@ -1,0 +1,45 @@
+{
+    "global": {
+        "debugMode": true,
+        "useProxy": true,
+        "deleteMessages": false,
+        "deleteInterval": 10000,
+        "productionDeleteInterval": 300000,
+        "debugDeleteInterval": 10000,
+        "giveAutoMult": 3600000,
+        "retweetInterval": 1,
+        "pm2name": "cryptoBot",
+        "markInactive": false,
+        "potStatInterval": 24,
+        "messageFooter": true
+    },
+    "mongo": {
+        "db": "cryptotipbot"
+    },
+    "i18n": {
+        "directory": "locales",
+        "defaultLanguage": "en",
+        "sessionName": "session",
+        "allowMissing": true,
+        "defaultLanguageOnMissing": true,
+        "useSession": true
+    },
+    "devFee": {
+        "reportChat": 0,
+        "devChat": 0,
+        "giveFee": 0,
+        "tipFee": 0,
+        "rainFee": 0,
+        "withdrawFee": 0,
+        "potFee": 10
+    },
+    "admins": [],
+    "TelegrafSession": {
+        "collectionName": "sessions",
+        "sessionName": "session"
+    },
+    "Log": {
+        "errorFile": "cryptpBot_errors.log",
+        "infoFile": "cryptpBot_info.log"
+    }
+}

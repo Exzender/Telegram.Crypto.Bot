@@ -1,0 +1,673 @@
+greeting: '👋 Bonjour !
+
+Je suis Crypto.Bot 🤖
+
+Je prend en charge les AirDrops et les Tips de Crypto-monnaies!'
+language: 'Langue française définie pour les messages @${botName}'
+languagePrivate: 'Langue française définie'
+help: 'ℹ <b>Aide</b>
+
+
+Bot pour AirDrops et Tips de Crypto-monnaies
+
+
+Initialement lancé pour <a href="https://callisto.network">Callisto Network</a>
+
+Pièces et chaînes prises en charge : (CLO, ETH, ETC, BNB, LTC, BTC)
+
+Les jetons ERC20, BEP2 sont supportés (ex: USDT, NOW)
+
+
+Fil de discussion du Bot : <a href="https://t.me/CryptoTheBot_support">Crypto.Bot_Support</a>
+
+
+AVERTISSEMENT : Pensez à noter votre clé privée dans un endroit sûr, afin de pouvoir accéder à votre portefeuille en cas d''incident avec Telegram ou le tip bot.
+
+Démarrer le dialogue avec Bot avec la commande — /start'
+helpGroup: '🤖 Crypto Bot 🤖 <b>Aide</b> ℹ
+
+
+📌 Bot pour AirDrop et Tip de Crypto-monnaies
+
+
+📌 Initialement lancé pour <a href="https://callisto.network">Callisto Network</a>
+
+Pièces/chaînes prises en charge :
+
+(CLO, ETH, ETC, BNB, LTC, BTC, USDT, NOW)
+
+
+❤️ Pour utiliser le bot, il vous faut d''abord vous enregistrer sur @${botNamae}
+
+
+- Utilisez /tip pour donner un pourboire
+
+- Utilisez /give ou /giveaway pour faire un don
+
+- Utilisez /rain pour faire un AirDrop
+
+- Utilisez /rtrain pour faire un AirDrop sur la base de retweets
+
+- Utilisez /stat pour obtenir les statistiques
+
+- Utilisez /pot pour participer à la loterie
+
+- Tapez /help en indiquant le nom de la commande pour obtenir les informations complémentaires
+
+(Exemple : /tip help, /give help)'
+helpGroupAdmin: "🅰️ Commandes réservées aux admins 🅰️
+
+- Utilisez /locale pour changer le langage
+
+- Utilisez /defcoin pour définir la pièce par défaut pour le groupe courant
+
+- Utilisez /deletereply pour activer/désactiver la suppression automatique des messages
+
+- Utilisez /permitlottery pour désactiver la loterie
+
+- Utilisez /potnotify for disabling repeating pot notifications
+
+- Utilisez /blacklist pour empêcher certains utilisateurs de recevoir les rains (rain)
+
+- Utilisez /adminonly to limit the use of the bot only to a group of admins
+
+- Utilisez /whitelist to manage rain whitelists"
+tipHelp: "/tip - donner un pourboire à un ou plusieurs utilisateurs en indiquant le nombre de pièces
+
+
+Si appelé en réponse à un message - l''auteur du message recevra un pourboire
+Cas particulier: vous pouvez faire un pourboire avec un billet de loterie (voir l'aide pour la commande POT pour plus de détails)
+
+La commande /reward peut être utilisée à la place de '/tip' (même fonction)
+
+
+Paramètres (séparés par des espaces, sans ordre particulier):
+
+- <i>valeur</i> / nombre (si omis - valeur par défaut utilisée)
+
+- <i>code_pièce</i> /caractères (si omis - la pièce par défaut du groupe est utilisée)
+
+- <i>nom_utilisateur</i> / @caractères (ou liste de noms d'utilisateurs)
+
+- <i>pot</i> (utiliser un mot spécial POT pour faire un pourboire avec un billet de loterie, au lieu de pièces)
+
+- <i>aide</i> (afficher l'aide)
+
+
+Exemples: /tip  @utilisateur1 @utilisateur2 10 LTC
+
+/tip @utilisateur1 5
+
+/tip CLO
+
+/tip @user1 100 clo pot - (achetez 2 billets de loterie clo pour l'User1)"
+giveHelp: "/give (ou /giveaway) - donner des pièces aux premiers qui les réclament dans le groupe
+
+
+Paramètres (séparés par des espaces, sans ordre particulier):
+
+- <i>valeur</i> / nombre (si omis - valeur par défaut utilisée)
+
+- <i>code_pièce</i> /caractères (si omis - la pièce par défaut du groupe est utilisée)
+
+- <i>aide</i> (afficher l'aide)
+
+
+Exemples : /give 0.5 BTC
+
+/giveaway CLO
+
+/give 100"
+rainHelp: "/rain - distribuer aléatoirement X pièces à N utilisateurs
+
+
+Paramètres (séparés par des espaces, sans ordre particulier):
+
+- <i>valeur</i> / nombre (si omis - valeur par défaut utilisée)
+
+- <i>code_pièce</i> / caractères (si omis - la pièce par défaut du groupe est utilisée)
+
+- <i>nom_utilisateur</i> / nombre (si omis ou si les valeurs ALL ou MAX sont utilisées - la valeur sera divisée par la valeur minimale possible/par utilisateur).
+
+- <i>WhiteListName</i> / string (make rain for users from white list named WhiteListName )
+
+- <i>aide</i> (afficher l'aide)
+
+
+Remarque 👉 Si 2 nombres sont fournis et que la valeur minimale de la pièce est un entier - alors le plus grand des 2 nombres sera utilisé comme VALEUR.
+Si l'un des deux est un nombre décimal, il sera utilisé comme VALEUR.
+ Les utilisateurs sont comptabilisés dans le chat ou le groupe courant. Lorsque le nombre d'utilisateurs est inférieur à VALEUR, cette dernière est divisée en parts égales.
+
+
+Exemples :
+
+/rain 10 20 CLO = (distribuer aléatoirement 20 CLO entre 10 utilisateurs)
+
+/rain 1000 = (distribuer 1000 CLO (si la valeur par défaut est CLO) à 1000 utilisateurs au hasard, la valeur minimum pour CLO est 1, si le chat comporte 100 utilisateurs enregistrés - chacun recevra 10 CLO)
+
+/rain = (distribuer 10 CLO (par défaut) à 10 utilisateurs (par défaut) (10 divisé par 10 = 1)"
+localeHelp: "/locale - changer la langue des messages du bot
+
+
+Paramètres :
+
+- <i>code</i> / caractères (code local)
+
+- <i>aide</i> (afficher l'aide)
+
+
+Exemples :
+
+/locale en
+
+/locale ru"
+defcoinHelp: "/defcoin - définir la pièce par défaut du groupe
+
+Cette pièce sera utilisée pour toutes les commandes lorsque l'utilisateur ne spécifiera pas de pièce.
+Chaque chat/groupe peut avoir sa propre pièce par défaut.
+
+
+Paramètres :
+
+- Aucun paramètres (afficher les valeurs par défaut en cours)
+
+- <i>code_pièce</i> /caractères (code de la pièce)
+
+- <i>aide</i> (afficher l'aide)
+
+
+Exemples :
+
+/defcoin CLO
+
+/defcoin"
+delRepHelp: "/deletereply - activer/désactiver l'option de suppression automatique.
+Le bot supprimera (ou non) ses réponses après un certain délai.
+
+
+Paramètres :
+
+- Aucun paramètres (afficher les valeurs par défaut en cours)
+
+- <i>valeur</i> / caractères ou nombre (valeurs acceptées : ON, OFF, TRUE, FALSE, 0, 1)
+
+- <i>aide</i> (afficher l'aide)
+
+
+Exemples :
+
+/deletereply on
+
+/deletereply 0"
+permLotHelp: "/permitlottery - activer/désactiver les loteries pour le chat courant.
+
+Empêcher les utilisateurs du chat courant de faire des participer à la loterie.
+
+
+Paramètres :
+
+- Aucun paramètres (afficher les valeurs par défaut en cours)
+
+- <i>value</i> / caractères ou nombre (valeurs acceptées : ON, OFF, TRUE, FALSE, 0, 1)
+
+- <i>aide</i> (afficher l'aide)
+
+
+Exemples :
+
+/permitlottery off
+
+/permitlottery true"
+blacklistHelp: "/blacklist - ajouter un utilisateur à la liste noire, afin qu'il ne puisse pas recevoir les distributions de pièces.
+
+Un utilisateur peut être ajouté à la liste noire s'il est membre du chat courant. Mais la restriction étant globale, elle s'appliquera à tous les chats.
+Pour retirer un utilisateur de la liste noire, utilisez la commande /unblacklist. Cette commande devra être appelée depuis le même chat.
+La commande peut être appelée depuis un message de réponse.
+
+
+Paramètres :
+
+- <i>Nom_utilisateur</i> / @caractères (ou liste de noms d'utilisateurs)
+
+- <i>aide</i> (affiche l'aide)
+
+
+Exemples :
+
+/blacklist @utilisateur1 @utilisateur2
+
+/unblacklist @utilisateur2"
+statHelp: "/stat - affiche les statistiques des opérations du bot (globales ou par pièce).
+
+Paramètres :
+
+- Aucun paramètres (voir les statistiques globales)
+
+- <i>code</i> / caractères (code de la pièce) - pour consulter les statistiques de la pièce spécifiée
+
+- <i>aide</i> (affiche l'aide)
+
+
+Exemples :
+
+/stat
+
+/stat ETC"
+potHelp: "/pot - consulter les informations de la loterie en cours, ou y participer (acheter un billet)
+
+Le tirage au sort a lieu chaque semaine le vendredi à 19h00 (UTC). Prix minimal du billet - 50x la valeur minimale de la pièce
+(50 pièces pour CLO, par exemple). Chaque utilisateur peut acheter autant de billets qu'il le souhaite. Les gagnants sont tirés au sort.
+Le premier gagnant reçoit 70 % du pot, le second - 20 %, le troisième - 10 %. L'administrateur peut désactiver les loteries dans son groupe/chat -
+Vous ne pourrez donc ni acheter de billets ni voir le statut du pot.
+Cas particulier de l'achat de billets: achetez des billets pour un autre utilisateur en cadeau (si la commande est appelée dans le message Répondre,
+si @UserName fourni). Dans ce cas, la valeur du pot peut être omise - la valeur par défaut minValue sera utilisée (1 ticket pour
+chaque utilisateur répertorié)
+
+
+Paramètres :
+
+- Aucun paramètres (voir le pot actuel de la pièce par défaut pour le chat courant)
+
+- <i>code</i> / caractères (code de la pièce) - voir l'état du pot pour la pièce sélectionnée
+
+- <i>valeur</i> / nombre - valeur de votre paris (ne doit pas être inférieur au prix minimum du billet). Vous pouvez acheter plusieurs billets avec une seule
+commande - entrez simplement la valeur multipliée par le nombre de billets souhaitez.
+
+- <i>userName</i> / @caractères (ou liste de noms d'utilisateurs - pour envoyer des tickets en cadeau aux utilisateurs)
+
+- <i>aide</i> (affiche l'aide)
+
+
+Exemples:
+
+/pot
+
+/pot ETH
+
+/pot 100 CLO - (acheter 2 billets de loterie CLO)
+
+/pot @User1 @User2 - (acheter 1 ticket à la loterie par défaut pour chaque utilisateur, s'il est enregistré dans le bot)"
+rtrainHelp: "/rtrain - distribuer N pièces parmi les utilisateurs qui ont retweeté un tweet
+
+
+Si le nombre cible de retweets n'est pas spécifiée, le premier appel de la commande rtrain lancera le compteur de retweets. Le second appel
+avec le même lien (tweet) lancera la distribution en fonction de la liste des retweets existants. Si la cible de retweets = 0 - rtrain s'exécutera
+immédiatement.  Si la cible de retweets a été fixée dans la commande précédente, et que la cible de la nouvelle commande a été fixée à 0 - rtrain s'exécutera immédiatement,
+et la cible initiale est ignorée, le processus prend fin. Si aucun objectif n'a été spécifié ou si tous les objectifs ont été atteints -
+le processus prendra fin.
+
+
+Paramètres : (séparé par un espace):
+
+- <i>valeur</i> / nombre (requis pour le deuxième appel de la commande ou pour la distribution automatique)
+
+- <i>code_pièce</i> / caractères (si omis - la pièce par défaut du groupe sera utilisée)
+
+- <i>lien_tweet</i> / url (lien du tweet)
+
+- <i>retweets</i> / nombre(s)
+
+- <i>aide</i> (affiche l'aide)
+
+
+Exemples:
+
+/rtrain https://twitter.com/CallistoSupport/status/1255634622240743426 = (commencer à enregistrer les retweets pour le tweet = 1255634622240743426)
+
+/rtrain https://twitter.com/CallistoSupport/status/1255634622240743426 1000 CLO = (si appelé après la commande précédente - appele la distribution (rain) pour les retweets déjà enregistrer)
+
+/rtrain {url} 1000 CLO 0 = (lance la distribution (rain) immédiatement)
+
+/rtrain 1000 CLO {url} 100 200  = (commencer à enregistrer les retweets, et lance une distribution (rain) lorsque 100 retweets ont été enregistrés, puis une autre distribution (rain) lorsque 200 retweets ont été enregistrés, chaque distribution distribuant 1000 CLO)"
+mainMenu: 'ℹ Menu Principal'
+settingsMenu: "⚙️ Menu des paramètres
+
+
+Ici, vous pouvez modifier certaines des options par défaut :
+
+- 🛠 Valeurs par défaut des tip/give/rain
+
+- 🐦 Nom d'utilisateur Twitter - pour associer votre compte Twitter
+
+- 💬 Changer la langue des messages du bot (si disponible)
+
+- 📝 Voir l'historique de votre portefeuille"
+stakingMenu: '🏦 Cold Staking
+
+
+Les pièces Callisto (CLO) contenues dans votre portefeuille peuvent être stakée afin de générer des revenus passifs 💰'
+earnCloMessage: "💰 Gagnez de l'argent facilement 💰
+
+
+Rejoignez le groupe Telegram de Callisto Network (@CallistoNet)
+et découvrez comment gagner des CLO 🍀"
+languageMessage: 'Choisissez une langue 💬'
+depositMessage: 'Choisissez la pièce que vous souhaitez <b>deposer</b> 👛'
+defsMessage: 'Choisissez une pièce pour laquelle vous souhaitez définir la <b>valeurs par défaut</b> 🛠'
+prkMessage: "Choisissez une pièce pour voir votre portefeuille <b>clé privé</b> 🔑
+
+AVERTISSEMENT : Pensez à noter votre clé privée dans un endroit sûr,
+afin de pouvoir accéder à votre portefeuille en cas d'incident avec Telegram ou le tip bot."
+withdrawMessage: 'Choisissez le type de pièce que vous souhaitez <b>retirer</b> 👉'
+userExists: "Déjà enregistré
+
+Essayez de vérifier votre solde 💰 ou d'utiliser d'autres fonctions"
+userNotExists: "Impossible d'exécuter votre commande
+
+Veuillez vous enregistrer ✅"
+userRegistered: "Nouvel utilisateur enregistré ✅
+
+Rendez-vous dans le menu <code>👛 dépôt</code> pour obtenir l'adresse de votre portefeuille"
+depositCoinMessage: "💎 Nom du projet: <b>${name}</b>
+
+🌎 Site Internet: ${link}
+
+👛 Adresse de dépôt pour <b>${coin}</b>:"
+pkCoinMessage: "💎 Nom du projet: <b>${name}</b>
+
+🌎 Portefeuille Web: ${link}
+
+🔑 Voici la clé privée pour votre portefeuille <b>${coin}</b>:"
+
+balanceMessage: 'Votre solde 💰'
+balanceAll: "Obtenez le solde de toutes les pièces"
+balMessage: 'Choisissez la pièce pour laquelle vous souhaitez afficher le <b>solde</b> 💰'
+
+# Withdraw dialog
+selectWithdrawAddress: "Veuillez sélectionner l'adresse cible pour le retrait"
+withdrawAddressManual: 'Saisie manuelle'
+withdrawVlueManual: 'Saisir la valeur manuellement'
+enterAddress: "Veuillez indiquer l'adresse du portefeuille cible"
+enterValue: 'Veuillez indiquer le nombre de pièces à transférer'
+invalidAddress: 'Adresse de retrait non valable'
+invalidValue: "Valeur invalide - ceci n'est pas un nombre"
+minWithdrawWarning: 'La valeur minimale est <code>${minval} ${coin}</code>'
+notEnoughValue: 'Valeur trop importante. Vous ne disposez que de <code>${val} ${coin}</code>'
+yesBtn: '✅ Oui'
+cancelBtn: '❌ Annuler'
+enterWithdrawValue: 'Adresse de retrait:
+
+<code>${address}</code>
+
+Veuillez sélectionner la valeur à transférer'
+withdrawConfirmation: 'Veuillez vérifier votre retrait
+
+Adresse cible : <code>${address}</code>
+
+Valeur : <code>${value} ${token}</code>
+
+Vous transférez environs : <code>${finValue} ${token}</code> (frais de retrait = ${fee}%)
+
+Confirmation du retrait ❓'
+withdrawSent: 'Retrait envoyé
+
+TxHash: <a href="${txExplorer}${hash}">TxHashLink</a>'
+
+noOperations: "Aucune opération pour l'instant"
+sent: 'Envoyé'
+received: 'Reçu'
+
+# Defaults dialog
+enterDefaults: 'Saisissez 2 nombres séparés par des espaces
+
+Le premier nombre sera utilisé pour <code>tip|give</code>
+
+Le second nombre pour <code>rains</code>'
+welcomeDefaults: 'Valeurs par défaut (<code>tip</code>|<code>give</code>) valeur = <code>${tipVal} ${coinCode}</code>
+
+Valeur (<code>rain</code>) par défaut = <code>${rainVal} ${coinCode}</code>
+
+Vous pouvez saisir de nouvelles valeurs à utiliser par défaut'
+errorDefaults: 'Saisie incorrecte'
+defaultsSuccess: 'Valeurs par défaut modifiées avec succès'
+
+# Staking dialog
+notStaking: 'Pas de staking en cours'
+wordDays: 'Jours'
+wordHours: 'Heures'
+stakeNotEnough: 'Pas assez de pièces à staker'
+cancelStartStake: 'Annulé'
+stakeValueMsg: 'Veuillez saisir la valeur à envoyer au contrat de staking'
+stakeRoundWait: 'Veuillez patienter, le staking est en cours.'
+stakeWithdrawWarning: 'Vous allez retirer votre mise du contrat de staking: <code>0xd813419749b3c2cDc94A2F9Cfcf154113264a9d6</code>
+
+Solde minimum requis de votre portefeuille pour effectuer un retrait : <code>0.1 CLO</code>
+
+❗️Avertissement : Après votre retrait, vous récupérerez votre investissement initial et recevrez une récompense de staking. Le cycle de staking en cours sera interrompu'
+stakeClaimWarning: 'Vous allez réclamer la récompense du contrat de cold staking: <code>0xd813419749b3c2cDc94A2F9Cfcf154113264a9d6</code>
+
+Solde minimum requis de votre portefeuille pour pouvoir réclamer cette récompense <code>0.1 CLO</code>
+
+❗️Avertissement : Après avoir réclamé la récompense, vos fonds seront gelés durant les 27 prochains jours et vous ne pourrez pas réclamer de nouvelles récompenses OU retirer vos fonds durant cette période.
+
+❗️Warning: Avertissement : En réclamant votre récompense, votre investissement initial sera automatiquement re-staké durant 27 jours. Si vous souhaitez tout retirer, cliquez sur ♻️ <code>withdraw</code>'
+stakeFinalWarning: "Vous êtes sur le point de geler vos ${coinName} dans le Cold Staking
+
+Vous êtes sur le point d'envoyer ${aValue} ${coinName} vers le contrat de staking : 0xd813419749b3c2cDc94A2F9Cfcf154113264a9d6
+
+Etes-vous sûr ?"
+stakeActiveWarning: "Vous avez déjà des fonds dans le contrat de staking. Si vous y effectuer un nouveau dépôt, la récompense en cours sera perdue.
+Il est préférable de retirer votre récompense de staking au préalable ou bien d'utiliser un autre compte."
+stakeStartWarning: 'Vos fonds seront bloqués pendant 27 jours et vous ne pourrez pas les retirer pendant cette période.
+
+Des frais de transaction doivent être payés pour lancer le staking, retirer votre mise ou réclamer les récompenses de staking !
+Assurez-vous que votre solde est suffisant pour effectuer ces transactions.
+Les récompenses de staking sont très variables, aussi le montant de la récompense dépend du moment où vous la réclamez'
+stakingInfoMsg: 'Solde du portefeuille : <code>${balance} ${coinName}</code>
+
+Montant en staking: <code>${val} ${coinName}</code>
+
+Récompense : <code>${reward} ${coinName}</code>
+
+Progrès : <code>${prgrs}%</code> (round ${round})
+
+Fin de la période de staking : <code> ${stkDate}</code>
+
+${wrd} à réaliser : <code>${days}</code>'
+
+# Twitter dialog
+enterTwitter: 'Entrez votre  @nom_d_utilisateur Twitter.'
+noteTwitter: 'Ce compte est utilisé pour vérifier les retweets de la communauté - afin que vous puissiez recevoir les distributions (rains)'
+linkedTwitter: 'Compte Twitter associé: '
+anotherTwitter: 'Vous pouvez associer un autre compte'
+notInTwitter: 'compte non trouvé sur twitter!'
+dupTwitter: "Ce compte Twitter est déjà associé
+
+Une nouvelle associatio n'est pas possible"
+linkSuccess: 'Votre compte twitter a été associé avec succès !'
+
+# Main Buttons
+registerButton: "✅ S'enregistrer"
+helpButton: 'ℹ Aide'
+balanceButton: '💰 Solde'
+depositButton: '👛 Dépot'
+withdrawButton: '👉 Retrait'
+settingsButton: '⚙️ Paramètres'
+coldStakingButton: '🏦 Cold Staking'
+mainMenuButton: '⬅️ Menu principal'
+earnCloButton: 'Gagnez des pièces CLO 💵'
+
+# Settings Buttons
+defaultValue: '🛠 Valeurs par défaut'
+twitterButton: "🐦 Nom d'utilisateur Twitter"
+historyButton: '📝 Historique des opérations'
+languageButton: '💬 Langue'
+pkButton: '🔑 clé privée'
+
+# Staking Buttons
+statusButton: '🔋 Statut'
+startStkButton: '📥 Lancer le Staking'
+claimStkButton: '💵 Réclamer une récompense'
+withdrawStkButton: '♻️ Retrait'
+
+# Group buttons
+claimBtn: 'Réclamer'
+
+# Stat messages
+statHeader: '📊 <b>Statistiques de <u>${coinName}</u></b>'
+statTips: '☕️ Tips: <b>${val}</b> ${coinName}'
+statGivs: '💸 Giveaways: <b>${val}</b> ${coinName}'
+statRains: '🌧 Rains: <b>${val}</b> ${coinName}'
+statLott: '🌧 Loteries: <b>${val}</b> ${coinName}'
+statSum: ' = SOMME : <b>${sum}</b> ${coinName} = '
+statAllHeader: '📊 <b>Statistiques consolidées</b>'
+statAllTips: '☕️ Tips: <b>${val}</b> times'
+statAllGivs: '💸 Giveaways: <b>${val}</b> times'
+statAllRains: '🌧 Rains: <b>${val}</b> receivers'
+statAllLott: '🌧 Loteries: <b>${val}</b> pots'
+statAllSum: ' = SOMME : <b>${sum}</b> operations = '
+statMemo: 'Utilisez /stat Nom_Pièce pour obtenir des statistiques sur une pièce'
+
+# Lottery messages
+potWaitNext: 'La loterie en cours est terminée. Attendez ${irv} heures pour le prochain tour !'
+potHeader: '🏆 <b>[${coinName}] 🏆 Pot de la loterie</b> 🍯'
+potValue: '🍯 Pot actuel :  ${value} ${coinName}' # ${cnt} tickets /
+potDeadLine: '⏰ Date limite de participation :  ${date}'
+potDrawDate: '📅 Date du tirage :  ${date}'
+potEmpty: '🚫 Le pot de loterie actuel est vide'
+ticketBtn: '1️⃣ ticket'
+ticket3Btn: '3️⃣ tickets'
+ticket10Btn: '🔟 tickets'
+potHaveTickets: 'Vous avez ${count} tickets de la loterie ${coinName}'
+potMinValue: 'Valeur minimale du pot = ${minValue} ${coinName}'
+potBought: "L'utilisateur ${userName} a acheté ${cnt} tickets 🎟 pour ${value} ${coinName}"
+potBoughtFor: "L'utilisateur ${userName} a acheté ${cnt} tickets 🎟 pour ${value} ${coinName} - Gift for ${destUser}"
+potButtonBuy: 'Acheter ${cnt} tickets. Veuillez patienter le temps de la transaction'
+potDisabled: 'Loteries désactivées dans le chat/groupe courant'
+potLastWeek: '💫 Résultats de la semaine dernière 💫'
+potWinner: "${place} 🎟 nombre = ${ticket} 🎉
+
+🏅 L'utilisateur ${userName} a gagné ${value} ${coinName} à la loterie hebdomadaire 🎰 avec ${cnt} tickets !"
+potSpinning: "Roue de la loterie 💫
+
+Nombre d'entrées à la loterie: ${entries}"
+#potRules: '====== 📝 Informations 📝 ======
+
+#- Chaque semaine 🎲 3 gagnants | 70%🍯 | 20%🍯 | 10%🍯
+
+potRules: "📝 <b>/pot help</b> - Plus d'informations
+
+👇 acheter des billets 👇"
+#- Acheter un ticket: /pot (valeur) (Nom_Pièce)
+
+#- ou appuyez simplement sur le bouton ci-dessous 👇
+
+# Groups messages'
+groupOnly: 'La plupart des commandes ne fonctionnent que dans les chats et les canaux'
+blacklistBot: "Désolé. Impossible d'ajouter le BOT à la liste noire !"
+blacklisted: "L'utilisateur ${nom} a été ajouté à la liste noire"
+blacklistAllready: "L'utilisateur ${nom} est déjà sur la liste noire"
+blacklistNotMember: "L'utilisateur ${nom} n'est pas membre du groupe courant- ne peut être ajouté à la liste noire"
+unblacklistChat: "L'utilisateur ${name} ${nom} peut être retiré de la liste noire uniquement dans le chat, où il est sur liste noire."
+unblacklisted: "L'utilisateur ${nom} a été retiré de la liste noire"
+notInBlacklist: "L'utilisateur ${nom} n'est PAS sur la liste noire"
+tippingBot: 'Impossible de donner un pourboire au BOT'
+nobodyToTip: "Destinataire inconnu.
+
+Répondez à un message de l'utilisateur ou mentionner son @nom_utilisateur dans la commande"
+usersNotRegistered: "L'utilisateur ( ${list} ) n'est pas enregistré dans le bot. Demandez-lui de s'enregistrer dans ${bot}"
+pleaseRegister: "Pour utiliser les commandes du bot, veuillez vous enregistrer dans ${botName}"
+notEnoughTx: "Vous n'avez pas assez de <code>${coin}</code> pour effectuer la/les transaction(s)
+
+Vous avez = <code>${balance} ${coin}</code>. Il vous faut = <code>${value} ${coin}</code>"
+notEnoughTxFee: "Vous n'avez pas assez de <code>${coin}</code> pour les frais de transaction"
+emptyList: "Impossible de faire la distribution (rain) - la liste des utilisateurs est vide"
+rainListHeader: '${userName} appelle Rain avec ${rainValue} ${coinName} pour ${count} users:'
+rainListItem: '${pos}. ${name} reçoit ${value} ${coinName}'
+preparingRain: 'Préparation de la distribution (rain) pour ${count} utilisateurs'
+tooLowValue: 'Valeur fournie insuffisante: <code>${value} ${coin}</code>
+
+Valeur minimale pour cette commande : <code>${minValue} ${coin}</code>'
+tooManyUsers: "Le nombre d'utilisateurs est trop important. La valeur perçue par l'utilisateur ne doit pas être inférieure à <code>${minValue} ${coin}</code>"
+userTipped: '${userName} tipped <code>${value} ${coin}</code> to ${userNameR}'
+userGetTipped: 'Vous avez reçu <code>${value} ${coin}</code> de ${userName}'
+userGetRained: "Vous avez reçu <code>${value} ${coin}</code> d'une distribution (rain) par ${userName}"
+userGetLottery: 'Félicitations 🎉 Vous avez reçu ${value} ${coin} de la loterie hebdomadaire 🎰 !'
+
+twitTarget: 'Le nombre de ${cnt} retweets a été atteint
+
+${link}'
+twitRain: 'Préparation de la distribution (rain) pour ${cnt} retweets
+
+${link}'
+noTwitLink: "rtrain ne peut pas fonctionner sans le lien d'un tweet"
+wrongTwitLink: 'Lien du tweet erroné'
+
+groupNoLocale: 'Indiquez le code local'
+groupCoinSet: 'La pièce par défaut pour ce groupe est ${coin}'
+groupValueOn: 'ON'
+groupValueOff: 'OFF'
+groupPermitLottery: "Etat des loteries dans ce groupe:"
+groupDeleteReply: "Suppression automatique des messages du Bot"
+unsupportedCoin: 'Pièce non prise en charge : ${coin}'
+test: 'Message Test'
+giverOnly: 'Seul le donateur peut annuler un don'
+selfClaim: "Vous ne pouvez pas réclamer votre don - mais vous pouvez l'annuler"
+waitClaim: 'Attendre ${hours} heures avant la prochaine réclamation'
+claimedBy: 'Réclamé par ${userName}'
+notRegisteredClaim: 'Vous ne pouvez pas réclamer ce don. Enregistrer vous auprès du bot'
+twitInfo: '<b>TweetID:</b> <code>${twid}</code>
+
+<b>Démarré:</b> <code>${date}</code>
+
+<b>Récompense:</b> <code>${value} ${token}</code>
+
+<b>Cibles:</b> <code>${tgt}</code>
+
+<b>Statut:</b> <code>${stt}</code>
+
+<b>Retweets enregistrés:</b> <code>${count}</code>'
+giveMessage: "L'utilisateur ${userName} donne <code>${value} ${coinName}</code>.
+
+Cliquez sur le bouton <u>Réclamer</u> pour le réclamer."
+# Security Dialog
+notLockedMessage: "Votre portefeuille n'est pas crypté. Le bouton de déverrouillage n'est donc pas disponible"
+passwordWarning: "⚠️ Lorsque vous définissez un mot de passe, chaque opération de retrait et d'exportation de PK nécessitera la saisie de ce mot de passe.
+Vous ne pourrez pas supprimer le mot de passe, mais uniquement le modifier.
+
+Souhaitez-vous poursuivre ?"
+encryptdWarning: "⚠️ Si vous cryptez vos clés privées - vous risquez de perdre l'accès aux portefeuilles du bot en cas de perte ou d'oubli de votre mot de passe.
+
+⚠️ Cette opération ne pourra pas être annulée !
+
+⚠️ Veuillez sauvegarder (exporter) toutes les clés privées du bot et les conserver en lieu sûr avant d'effectuer le cryptage!
+
+⚠️ Veuillez également noter que vous devrez 🔓 <b>Déverrouiller</b> vos portefeuilles pour effectuer des opérations telles que les TIP ou POT. Après le déverrouillage, vous disposerez d'une heure pour effectuer les opérations, après quoi les portefeuilles seront verrouillés à nouveau.
+
+❓ Etes-vous sûr de vouloir continuer ❓"
+enterPassword: "Entrez votre mot de passe"
+enterNewPassword: "OK. Entrez maintenant le nouveau mot de passe"
+enterOldPassword: "Saisissez le mot de passe actuel"
+repeatPassword: "Veuillez saisir à nouveau votre mot de passe"
+shortPassword: "Le mot de passe doit comporter au moins 9 caractères."
+longPassword: "Le mot de passe ne doit pas comporter plus de 28 caractères"
+pwdNotMatch: "Les mots de passe ne correspondent pas"
+setPwdSuccess: "Mot de passe défini avec succès"
+cantCheckPassword: "Il y a un problème. Impossible de vérifier votre mot de passe"
+wrongPassword: "Mot de passe incorrect"
+encryptError: "Erreur de cryptage"
+walletLocked: "Votre portefeuille est verrouillé. Veuillez le déverrouiller d'abord dans @${botName}"
+encryptedSuccess: "Crypté avec succès"
+decryptError: "Erreur de décryptage. Mauvais mot de passe"
+unlockSuccess: "Débloqué avec succès pendant 1 heure"
+securityMessage: "🛡 Menu sécurité
+
+
+
+Ici, vous pouvez protéger vos portefeuilles :
+
+- 🎛 Définir un mot de passe - afin de protéger les opérations de retrait
+
+- 🔐 Crypter la PK - crypter vos clés privées, conservées dans la base de données du bot
+
+- 🔑 Exportez vos clés privées"
+
+securityButton: "🛡 Sécurité"
+
+# Security Buttons
+setPwdButton: "🎛 Définir le mot de passe"
+changePwdButton: "🎛 Changer de mot de passe"
+encryptButton: "🔐 Crypter la PK"
+unlockButton: "🔓 Déverrouiller"
+
+groupPermitPotNotify: "Dans ce groupe, les notifications de pot indiquent :"

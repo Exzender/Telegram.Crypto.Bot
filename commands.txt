@@ -1,0 +1,7 @@
+help - get more info
+tip - tip user
+give - giveaway coins to first who claim
+rain - spread N coins among X users 
+pot - take part in weekly lottery 
+rtrain - call Rain for users who retweeted 
+stat - show some statistics

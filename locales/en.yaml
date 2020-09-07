@@ -1,0 +1,869 @@
+greeting: '👋 Hello!
+
+I am a Crypto.Bot 🤖
+
+I can manage AirDrops and Tips in Crypto Coins!'
+language: 'English language set for @${botName} messages'
+languagePrivate: 'English language set'
+
+help: 'ℹ <b>Help</b>
+
+
+AirDrop and Tipping bot for Crypto Coins
+
+
+Was first introduced for a <a href="https://callisto.network">Callisto Network</a>
+
+
+Now it supports more coins/chains (CLO, ETH, ETC, BNB, LTC, BTC).
+ Tokens (ERC20 and BEP2) are also supported (NOW, AWC, TWT)
+
+
+/start — Start dialog with Bot
+
+Register to use the bot.
+
+
+p.s. Currently all dev-fees removed (you pay only standrad transaction fees when using bot).
+
+
+Support development of the bot by making a donation'
+helpAdmin: '🅰️ admins only commands 🅰️
+
+addcoin - reg wallets for platform (ex: binance)
+
+import - import users from another bot (ex: clotipbot)
+
+/restart - bot restart
+
+stop - bot stop
+
+set - call in group to change fee (ex: /set tipFee 0)
+
+userinfo - get User info from DB
+
+msgallchats - Send message to All chats
+
+msgallusers -  Send message to All users
+
+msgadmins - Send message to Admins of all chats
+
+/chatlist - list known chats
+
+message - send message to user (param1 - user ID, param2 - message)
+
+/checkmembers - prepare list of members for all chats (for rains)
+
+/checkmembersg - rebuild list for all chats (no params)
+
+lottery - manually start lottery (param - week num way back)
+
+/startcount - get stats by new users (from Start command)'
+helpGroup: '🤖 Crypto Bot 🤖 <b>Help</b> ℹ
+
+
+📌 Crypto Coins airDrop and tipping bot
+
+
+📌 Was introduced for a <a href="https://callisto.network">Callisto Network</a>
+
+Supported coins/chains
+
+(CLO, ETH, ETC, BNB, LTC, BTC, USDT, NOW, AWC)
+
+
+Bot works with on-chain transactions, so standard transactions fees are applied to every operation.
+No other fees will be charged (except lotteries)
+
+Support the bot maintenace and development with donations
+(you can simply tip the bot itself to make a donation)
+
+
+❤️ To start using bot first register in @${botNamae}
+
+
+- Use /tip to make tip
+
+- Use /give or /giveaway to start giveaway
+
+- Use /rain or /airdrop for AirDrop
+
+- Use /rtrain for AirDrop based on retweets
+
+- Use /stat to get stats
+
+- Use /pot for lottery
+
+- Type /help with command name to get additional info
+
+(use /tip help or /give help will work either)'
+helpGroupAdmin: '🅰️ admins only commands 🅰️
+
+- Use /locale for switching language
+
+- Use /defcoin for default coin for current group
+
+- Use /deletereply to turn on/off messages auto-delete
+
+- Use /permitlottery for disabling lottery
+
+- Use /potnotify for disabling repeating pot notifications
+
+- Use /blacklist to block rains for user(s)
+
+- Use /adminonly to limit the use of the bot only to a group of admins
+
+- Use /whitelist to manage rain whitelists'
+tipHelp: "/tip - tip user(s) with provided amount for coins
+
+
+If called in Reply message - author of replied message will be tipped.
+
+Special case: you can do tip with a Lottery ticket (see help for POT command for details)
+
+Donation: tip bot itsefl to make a donation to the author
+
+
+/reward command can be used instead of tip (same function)
+
+
+Params (space separated, in any order):
+
+- <i>value</i> / number (if omitted - default value used)
+
+- <i>coin code</i> / string (if omitted - group default coin used)
+
+- <i>userName</i> / @string (or list of user names)
+
+- <i>pot</i> (use POT special word to make tip with a Lottery Ticket, instead of coins)
+
+- <i>help</i> (show this help)
+
+
+Examples:
+
+/tip  @user1 @user2 10 LTC - (send 10 LTC to @user1, and 10 LTC to @user2)
+
+/tip @user1 5 - (send 5 CLO (by default) to @user1)
+
+/tip @user1 100 clo pot - (buy 2 clo lottery tickets for the User1)
+
+/tip CLO - (send 1 (by default) CLO in reply message to tip author of that message)
+
+/tip @Crypto_TheBot 100 CLO - (donate 100 clo to bot's author)"
+giveHelp: '/give (or /giveaway) - giveaway coins in a group to first who claim
+
+
+Params (space separated, in any order):
+
+- <i>value</i> / number (if omitted - default value used)
+
+- <i>coin code</i> / string (if omitted - group default coin used)
+
+- <i>help</i> (show this help)
+
+
+Examples: /give 0.5 BTC
+
+/giveaway CLO
+
+/give 100'
+rainHelp: "/rain - spread N coins among X random users
+
+/airdrop command can be used instead of rain (same function)
+
+
+Params (space separated, in any order):
+
+- <i>value</i> / number (if omitted - default value used)
+
+- <i>coin code</i> / string (if omitted - group default coin used)
+
+- <i>NUMBER_of_Users</i> / number (if omitted or ALL or MAX words used - VALUE divided to minimum possible value/per user - to get number or receivers).
+
+- <i>WhiteListName</i> / string (make rain for users from white list named WhiteListName )
+
+- <i>help</i> (show this help)
+
+
+note 👉 If 2 numbers provided, and min value for coin is integer - than max of 2 numbers used as VALUE.
+If one of 2 numbers is float - it's used as VALUE.
+  Users are counted inside current chat or group. If number of users is less - than VALUE divided envenly.
+
+
+Examples:
+
+/rain 10 20 CLO = (split 20 clo to 10 random users)
+
+/rain 1000 = (split 1000 clo (if default is CLO) to 1000 random users, min value for CLO is 1, if only 100 registered users found in chat - everyone gets 10 clo)
+
+/rain = (split 10 (default) clo (default) to 10 (10 div 1) users"
+localeHelp: "/locale - change locale for bot's messages
+
+
+Params:
+
+- <i>code</i> / string (locale code)
+
+- <i>help</i> (show this help)
+
+
+Examples:
+
+/locale en
+
+/locale ru"
+defcoinHelp: "/defcoin - set default coin for group
+
+This coin used in other commands if not specified by the user.
+Each chat/group has it's own default coin
+
+
+Params:
+
+- NO-params (view current defaults)
+
+- <i>code</i> / string (coin code)
+
+- <i>help</i> (show this help)
+
+
+Examples:
+
+/defcoin CLO
+
+/defcoin"
+delRepHelp: "/deletereply - turn on/off auto-delete option.
+So bot will delete (or not) it's replies after a time interval.
+
+
+Params:
+
+- NO-params (view current defaults)
+
+- <i>value</i> / string or number (ON, OFF, TRUE, FALSE, 0, 1 values accepted)
+
+- <i>help</i> (show this help)
+
+
+Examples:
+
+/deletereply on
+
+/deletereply 0"
+permLotHelp: "/permitlottery - turn on/off lotteries for current chat.
+
+If you want to restrict chat users for making lottery bets in current chat.
+
+
+Params:
+
+- NO-params (view current defaults)
+
+- <i>value</i> / string or number (ON, OFF, TRUE, FALSE, 0, 1 values accepted)
+
+- <i>help</i> (show this help)
+
+
+Examples:
+
+/permitlottery off
+
+/permitlottery true"
+blacklistHelp: "/blacklist - add user to blacklist, so he will not receive rains.
+
+User can be added to blacklist if he is a member of current chat. But the restriction is global - works for all chats.
+To remove user from black list use /unblacklist command. This command must be called from the same chat.
+Command can be called in Reply message
+
+
+Params:
+
+- <i>userName</i> / @string (or list of user names)
+
+- <i>help</i> (show this help)
+
+
+Examples:
+
+/blacklist @user1 @user2
+
+/unblacklist @user2"
+statHelp: "/stat - show stat for bot's operations (global or by one coin).
+
+Params:
+
+- NO-params (view global stat)
+
+- <i>code</i> / string (coin code) - to view stat by selected coin
+
+- <i>help</i> (show this help)
+
+
+Examples:
+
+/stat
+
+/stat ETC"
+potHelp: "/pot - view info about current lottery, or take part in the lottery (buy a ticket)
+
+Lotteries are drawn every week on Friday at 07:00 PM (UTC). Minimal ticket price - 50x (or 20x for more valuable coins)
+of coin's minimal value (50 coins for CLO, for example).
+
+Every user can buy as many tickets as he wants. Winners selected by random.
+
+First winner gets 70% of the pot, second - 20%, last one - 10%. If number of tickets less than 20, will be only One
+winner, who gets whole pot (decreased by dev fee).
+
+Admin can disable lotteries in his group/chat - so in that chat you can't buy tickets or view pot status.
+
+Special case of buying tickets: buy tickets for another user(s) as a gift (if command called in Reply message,
+of if @UserName(s) provided). In this case Pot Value may be omitted - default minValue will be used (1 ticket for
+each listed user)
+
+Dev fee: 10% of the pot
+
+
+Params:
+
+- NO-params (view current pot by coin, default for curren chat)
+
+- <i>code</i> / string (coin code) - view pot status by selected coin
+
+- <i>value</i> / number - your pot value (must be not less Minimal ticket price). You can buy many tickets with one
+command - just enter value multiplied by number of tickets you want
+
+- <i>userName</i> / @string (or list of user names - to send ticket(s) as a gift to user(s))
+
+- <i>help</i> (show this help)
+
+
+Examples:
+
+/pot
+
+/pot ETH
+
+/pot 100 CLO - (buy 2 tickets in CLO lottery),
+
+/pot @User1 @User2 - (buy 1 ticket in default coin lottery for each user, if they are registered in bot)"
+rtrainHelp: "/rtrain - spread N coins among those users who retweeted a tweet
+
+
+If no retweets target is specified - first call of rtrain will only start retweets counter. In this case second call
+with same tweet link will show tweet stat. If retweets target = 0 - rtarain runs
+immediately. If retweets target was set in previous command, and new command have target = 0 - rtarain runs immediately,
+and all other targets are ignored, retweets collection stops. If no targets was specified or all targets reached -
+retweets collection stops.
+
+
+Params (space separated):
+
+- <i>value</i> / number (required for second call or for auto-rain, first found in params number)
+
+- <i>coin code</i> / string (if omitted - group default coin used)
+
+- <i>tweet_link</i> / url (link to the tweet)
+
+- <i>retweets</i> / number(s) (target number of retweets to reach for next rain - up to 4 targets for 1 tweet)
+
+- <i>help</i> (show this help)
+
+
+Examples:
+
+/rtrain https://twitter.com/CallistoSupport/status/1255634622240743426 = (start collecting retweets for tweet ID = 1255634622240743426)
+
+/rtrain https://twitter.com/CallistoSupport/status/1255634622240743426 1000 clo = (if called after prev command - call rain for already collected retweets)
+
+/rtrain {url} 1000 clo 0 = (run rain immediately)
+
+/rtrain 1000 clo {url} 100 200  = (start collecting retweets, run rain when 100 retweets counted, and another one rain when 200 retweets reached, each rain spreads 1000 clo)"
+mainMenu: 'ℹ Main Menu'
+settingsMenu: '⚙️ Settings Menu
+
+
+Here you can change some default options:
+
+- 🛠 Default values for tip/give/rain operations
+
+- 🐦 Twitter name - to link Twitter account
+
+- 💬 Switch my messages to your language (if available)
+
+- 📝 View your wallet history'
+stakingMenu: '🏦 Cold Staking
+
+
+Callisto (CLO) coins in your wallet could be staked to generate passive income 💰'
+earnCloMessage: '💰 Earn money for free 💰
+
+
+Join to Callisto Network telegram group (@CallistoNet)
+and follow the opportunities to earn 🍀'
+languageMessage: 'Choose language 💬'
+depositMessage: 'Choose coin, which you want to <b>deposit</b> 👛'
+balMessage: 'Choose coin, for which you want to view <b>Balance</b> 💰'
+defsMessage: 'Choose coin, for which you want to set <b>default values</b> 🛠'
+prkMessage: 'Choose coin to view wallet <b>private key</b> 🔑
+
+WARNING: Remember to write down your private key somewhere safe, in the event of something happening
+with telegram or the tip bot you will be able to handle your wallet with any other wallet'
+withdrawMessage: 'Choose coin, which you want to <b>withdraw</b> 👉'
+userExists: 'Already registered
+
+Try checking your 💰 balance and other functions'
+userNotExists: 'Can not execute your command
+
+Please register ✅'
+userRegistered: 'Registered new User ✅
+
+Go to <code>👛 deposit</code> menu to get your wallet addresses'
+depositCoinMessage: "💎 Cryptocurrency: <b>${name}</b>
+
+🌎 Project Website: ${link}
+
+👛 Deposit address for <b>${coin}</b>:"
+pkCoinMessage: "💎 Project Name: <b>${name}</b>
+
+🌎 Web-wallet: ${link}
+
+🔑 Your PK for <b>${coin}</b>:"
+
+balanceMessage: 'Your balance 💰'
+balanceAll: "Get all coins balance"
+
+# Withdraw dialog
+selectWithdrawAddress: 'Please select target address for Withdraw'
+withdrawAddressManual: 'Enter manually'
+withdrawVlueManual: 'Enter value manually'
+enterAddress: 'Please provide target wallet Address'
+enterValue: 'Please provide coins Value (just a number)'
+invalidAddress: 'Invalid withdraw address'
+invalidValue: 'Invalid value - not a number'
+minWithdrawWarning: 'Min value is <code>${minval} ${coin}</code>'
+notEnoughValue: 'Too big value. You have only <code>${val} ${coin}</code>'
+yesBtn: '✅ Yes'
+cancelBtn: '❌ Cancel'
+enterWithdrawValue: 'Address for Withdraw:
+
+<code>${address}</code>
+
+Please select value for withdraw'
+withdrawConfirmation: 'Please check your withdrawal
+
+Target Address: <code>${address}</code>
+
+Value: <code>${value} ${token}</code>
+
+You will get nearly: <code>${finValue} ${token}</code> (withdraw fee = ${fee}%)
+
+Confirm Withdraw ❓'
+withdrawSent: 'Withdrawal sent
+
+Value: ${val} ${token}
+
+TxHash: <a href="${txExplorer}${hash}">TxHashLink</a>'
+
+noOperations: 'No operations yet'
+sent: 'Sent'
+received: 'Received'
+
+# Defaults dialog
+enterDefaults: 'Input 2 numbers separated by space
+
+First number will be used in <code>tip|give</code>
+
+Second number - in <code>rains</code>'
+welcomeDefaults: 'Default (<code>tip</code>|<code>give</code>) value = <code>${tipVal} ${coinCode}</code>
+
+Default (<code>rain</code>) value = <code>${rainVal} ${coinCode}</code>
+
+You can enter New values to be used by Default'
+errorDefaults: 'Wrong numbers entered'
+defaultsSuccess: 'Default values successfully changed'
+
+# Staking dialog
+notStaking: 'Not staking yet'
+wordDays: 'Days'
+wordHours: 'Hours'
+stkClaimSuccess: 'Stake reward claimed successfully'
+stkWithdrawSuccess: 'Stake withdrawed successfully'
+stakeNotEnough: 'Not enough coins to Stake'
+cancelStartStake: 'Cancelled'
+stakeValueMsg: 'Please select value to send to the staking contract'
+stakeRoundWait: 'Staking round is in progress. Please wait'
+stakeWithdrawWarning: 'You will withdraw your stake from the cold staking contract: <code>0xd813419749b3c2cDc94A2F9Cfcf154113264a9d6</code>
+
+Minimum balance in your address to withdraw: <code>0.1 CLO</code>
+
+❗️Warning: After withdrawing, your will get back all your initial investment and receive all staking reward. Current staking round will be cancelled'
+stakeClaimWarning: 'You will claim reward from the cold staking contract: <code>0xd813419749b3c2cDc94A2F9Cfcf154113264a9d6</code>
+
+Minimum balance in your address to claim this reward: <code>0.1 CLO</code>
+
+❗️Warning: After claiming the reward, your funds will be frozen for the next 27 days and you will be unable to claim new reward OR withdraw your funds during this period.
+
+❗️Warning: Claiming your reward do not give you back your initial investment and it will re stake automatically your founds. To withdraw all, press ♻️ <code>withdraw</code>'
+stakeFinalWarning: 'You are about to freeze your ${coinName} for Cold Staking
+
+You are about to send ${aValue} ${coinName} to the staking contract: 0xd813419749b3c2cDc94A2F9Cfcf154113264a9d6
+
+Are you sure you want to do this?'
+stakeActiveWarning: 'You already have funds in staking contract. You will lose your staking reward if you
+make a new deposit into the contract. You should withdraw your staking reward first or use a another
+account for a new staking deposit'
+stakeStartWarning: 'Your funds will be locked for 27 days and you will be unable to withdraw within the locking period
+
+You need to pay transaction fees to start staking, withdraw your stake, or claim staking rewards!
+Make sure that you have enough funds left on your balance to perform these transactions.
+Staking rewards are very unpredictable and the amount of reward depends on the time when you are claiming it'
+
+stakingInfoMsg: 'Wallet balance: <code>${balance} ${coinName}</code>
+
+Staking value: <code>${val} ${coinName}</code>
+
+Reward: <code>${reward} ${coinName}</code>
+
+Progress: <code>${prgrs}%</code> (round ${round})
+
+Staking round ends: <code> ${stkDate}</code>
+
+${wrd} to complete: <code>${days}</code>'
+
+# Twitter dialog
+enterTwitter: 'Enter Your twitter @UserName.'
+noteTwitter: 'This account will be used to check retweets of community posts - so You can receive Rains'
+linkedTwitter: 'Linked twitter account: '
+anotherTwitter: 'You can link another account'
+notInTwitter: 'account not Found on twitter!'
+dupTwitter: 'This Twitter account as already Linked
+
+New link is not possible'
+linkSuccess: 'Successfully linked Your twitter account !'
+
+# Security Dialog
+notLockedMessage: "Your wallet in not Encrypted. Unlock button does nothing for you"
+passwordWarning: "⚠️ When you set the Password, each Withdraw and Export PK operations will require entering this password.
+You will not be able to clear the password - only to change it.
+
+Whould You like to continue ?"
+encryptdWarning: "⚠️ If you encrypt your private keys - you can lose access to your wallets in bot in case of losing /
+forgetting your password.
+
+⚠️ This operation can not be undone!
+
+⚠️ Please, backup (export) all your private keys from bot and store them safe before performing encryption!
+
+⚠️ Also, please note, that you will have to 🔓 <b>Unlock</b> your wallets to perform operations such as TIP or POT. After
+unlocking you will have one hour for operations, then wallets will be locked again.
+
+❓ Are you sure you would like to continue ❓"
+enterPassword: "Enter your password"
+enterNewPassword: "OK.  Now enter New password"
+enterOldPassword: "Enter your current password"
+repeatPassword: "Please, repeat your password"
+shortPassword: "Password length must be at least 9 symbols"
+longPassword: "Password length must not exceed 28 symbols"
+pwdNotMatch: "Passwords did not Match"
+setPwdSuccess: "Password set Successfully"
+cantCheckPassword: "Something wrong. Can not check your password"
+wrongPassword: "Wrong password"
+encryptError: "Error with encryption"
+walletLocked: "Your wallet is locked. Please unlock it first in @${botName}"
+walletLocked2: "Your wallet is locked. Please unlock it Main Menu"
+encryptedSuccess: "Successfully encrypted"
+decryptError: "Decryption error. Wrong password"
+unlockSuccess: "Successfully unlocked for 1 hour"
+securityMessage: "🛡 Security Menu
+
+
+Here you can protect your Wallets:
+
+- 🎛 Set Password - to protect Withdraw operations
+
+- 🔐 Encrypt PK - encrypt your private keys, stored in bot's DB
+
+- 🔑 Export your private keys"
+
+# Main Buttons
+registerButton: '✅ Register'
+helpButton: 'ℹ Help'
+balanceButton: '💰 Balance'
+depositButton: '👛 Deposit'
+withdrawButton: '👉 Withdraw'
+settingsButton: '⚙️ Settings'
+coldStakingButton: '🏦 Cold Staking'
+mainMenuButton: '⬅️ Main Menu'
+earnCloButton: 'Earn CLO 💵'
+walletButton: '💳 Wallet'
+infoButton: 'ℹ Info'
+donateButton: "🙏 Donate"
+partnersButton: "🤝 Projects"
+contactButton: "📧 Contact"
+
+# Settings Buttons
+defaultValue: '🛠 Default values'
+twitterButton: '🐦 Twitter Name'
+historyButton: '📝 Operations history'
+languageButton: '💬 Language'
+securityButton: "🛡 Security"
+
+# Security Buttons
+setPwdButton: "🎛 Set Password"
+changePwdButton: "🎛 Change Password"
+encryptButton: "🔐 Encrypt PK"
+unlockButton: "🔓 Unlock"
+pkButton: '🔑 Export PK'
+
+# Staking Buttons
+statusButton: '🔋 Status'
+startStkButton: '📥 Start Staking'
+claimStkButton: '💵 Claim Reward'
+withdrawStkButton: '♻️ Withdraw'
+
+# Group buttons
+claimBtn: 'Claim'
+
+# Stat messages
+statHeader: '📊 <b>Stat by <u>${coinName}</u></b>'
+statTips: '☕️ Tips: <b>${val}</b> ${coinName}'
+statGivs: '💸 Giveaways: <b>${val}</b> ${coinName}'
+statRains: '🌧 Rains: <b>${val}</b> ${coinName}'
+statLott: '🌧 Lotteries: <b>${val}</b> ${coinName}'
+statSum: ' = SUM : <b>${sum}</b> ${coinName} = '
+statSpent: '<b>Most spending</b>'
+spentWord: 'spent'
+statReceived: '<b>Most gaining</b>'
+receivedWord: 'received'
+statTip: '<b>Most respected</b>'
+tippedWord: 'was tipped ${pluralize(count, "time", "times")}'
+statRain: '<b>Lucky One</b>'
+rainWord: 'received rains ${pluralize(count, "time", "times")} (sum = ${val} ${token})'
+statClaim: '<b>Claims champion</b>'
+claimedWord: 'claimed ${pluralize(count, "time", "times")} (sum = ${val} ${token})'
+statPot: '<b>Lottery champion</b>'
+lottWord: 'won ${pluralize(count, "time", "times")} (sum = ${val} ${token}})'
+statAllHeader: '📊 <b>Сonsolidated Stat</b>'
+statAllTips: '☕️ Tips: <b>${val}</b> times'
+statAllGivs: '💸 Giveaways: <b>${val}</b> times'
+statAllRains: '🌧 Rains: <b>${val}</b> receivers'
+statAllLott: '🌧 Lotteries: <b>${val}</b> pots'
+statAllSum: ' = SUM : <b>${sum}</b> operations = '
+statMemo: 'use /stat CoinName to get stat by one Coin '
+
+# Lottery messages
+potWaitNext: 'Current Lottery is closed. Wait ${pluralize(irv, "hour", "hours")} for the next round!'
+potHeader: '🏆 <b>[${coinName}] 🏆 Lottery Pot</b> 🎲'
+potValue: '🍯 Current pot :  ${value} ${coinName}' #$ {pluralize(cnt, "ticket", "tickets")} /
+potDeadLine: '⏰ Deadline :  ${date}'
+potDrawDate: '📅 Draw date :  ${date}'
+potEmpty: '🚫 Current Lottery Pot is empty'
+ticketBtn: '1️⃣ ticket'
+ticket3Btn: '3️⃣ tickets'
+ticket10Btn: '1️⃣0️⃣ tickets'
+ticket50Btn: '5️⃣0️⃣ tickets'
+ticket100Btn: '1️⃣0️⃣0️⃣ tickets'
+potHaveTickets: 'You have ${pluralize(count, "POT ticket", "POT tickets")} in ${coinName} lottery'
+potMinValue: 'Minimum value for Pot = ${minValue} ${coinName}'
+potBought: 'User ${userName} bought ${pluralize(cnt, "Pot ticket", "Pot tickets")} 🎟 for ${value} ${coinName}'
+potBoughtFor: 'User ${userName} bought ${pluralize(cnt, "Pot ticket", "Pot tickets")} 🎟 for ${value} ${coinName} as a Gift for ${destUser}'
+potButtonBuy: 'Buying  ${pluralize(cnt, "Pot ticket", "Pot tickets")}. Please wait for Tx to commit'
+potDisabled: 'Lotteries disabled in current chat/group'
+potLastWeek: '--- 💫 Last week results 💫 ---'
+potWinner: '${place} 🎟 number = ${ticket} 🎉
+
+🏅 User ${userName} WON ${value} ${coinName} in weekly 🎰 Lottery with  ${pluralize(cnt, "ticket", "tickets")} !'
+potSpinning: 'Spinning Lottery wheel 💫
+
+Number of entries in Lottery: ${entries}'
+#potRules: '====== 📝 information 📝 ======
+
+potRules: '📝 <b>/pot help</b> - for more info
+
+👇 use buttons to buy tickets 👇'
+
+# Groups messages
+groupOnly: 'Most commands work only in Chats and Channels'
+blacklistBot: 'Sorry. Can not add BOT to blacklist !'
+blacklisted: 'User ${name} added to BlackList'
+blacklistAllready: 'User ${name} already in BlackList'
+blacklistNotMember: 'User ${name} is not a member ot current Group - can not add to BlackList'
+unblacklistChat: 'User ${name} can be removed from BlackList only in Chat, where it get blacklisted'
+unblacklisted: 'User ${name} removed from BlackList'
+notInBlacklist: 'User ${name} NOT in BlackList'
+tippingBot: 'Can not tip to BOT'
+nobodyToTip: "Unknown TIP recipient.
+
+Call <b>/tip help</b> to view manual"
+usersNotRegistered: 'Users ( ${list} ) not registered in bot. Ask them to register in ${bot}'
+pleaseRegister: "For using bot's commands please register in ${botName}"
+notEnoughTx: 'You do not have enough <code>${coin}</code> to perform transaction(s)
+
+You have = <code>${balance} ${coin}</code>. You need = <code>${value} ${coin}</code>'
+notEnoughTxFee: 'You do not have enough <code>${coin}</code> for transaction fee'
+emptyList: "Can't do Rain - users list is empty"
+rainListHeader: '${userName} calls Rain with ${rainValue} ${coinName} for ${pluralize(count, "user", "users")}'
+rainTwListHeader: '${userName} calls Rain for retweets of ${link} with ${rainValue} ${coinName} for ${pluralize(count, "user", "users")}'
+rainListItem: '${pos}. ${name} gets ${value} ${coinName}'
+preparingRain: 'Preparing rain for ${pluralize(count, "user", "users")}'
+tooLowValue: 'Low value provided: <code>${value} ${coin}</code>
+
+Min value for this command: <code>${minValue} ${coin}</code>'
+tooManyUsers: 'Users number is too big. Value per User should not be less than <code>${minValue} ${coin}</code>'
+userTipped: '${userName} tipped <code>${value} ${coin}</code> to ${userNameR}'
+botTipped: "${userName} donated <code>${value} ${coin}</code> to bot's Author"
+userGetTipped: 'You received <code>${value} ${coin}</code> from ${userName}'
+userGetRained: 'You received <code>${value} ${coin}</code> from rain by ${userName}'
+userGetLottery: 'Congrats, Winner 🎉 You received ${value} ${coin} from weekly 🎰 Lottery!'
+
+twitTarget: 'Reached ${cnt} retweets for tweet
+
+${link}'
+twitRain: 'Preparing Rain for ${cnt} retweets of tweet
+
+${link}'
+noTwitLink: 'rtrain can not work without tweet link'
+wrongTwitLink: 'Wrong tweet link'
+
+groupNoLocale: 'Provide locale code'
+groupCoinSet: 'Default coin for this group set to ${coin}'
+groupValueOn: 'ON'
+groupValueOff: 'OFF'
+groupPermitLottery: "Bot's lotteries in this group state:"
+groupPermitPotNotify: "Pot notifications in this group state:"
+groupDeleteReply: "Bot's messages auto-delete is"
+unsupportedCoin: 'Unsupported coin: ${coin}'
+test: 'Test message'
+giverOnly: 'Only giver can Cancel giveaway'
+selfClaim: 'You can not claim yours giveaway - but You can Cancel'
+waitClaim: 'Wait ${pluralize(hours, "hour", "hours")} before next Claim'
+claimedBy: 'Claimed by ${userName}'
+notRegisteredClaim: 'You can not claim. Talk to bot and register'
+twitInfo: '<b>TweetID:</b> <code>${twid}</code>
+
+<b>Started:</b> <code>${date}</code>
+
+<b>Award:</b> <code>${value} ${token}</code>
+
+<b>Targets:</b> <code>${tgt}</code>
+
+<b>Status:</b> <code>${stt}</code>
+
+<b>Retweets collected:</b> <code>${count}</code>'
+giveMessage: 'User ${userName} is giving <code>${value} ${coinName}</code>.
+
+Click the <u>Claim</u> button to claim it.'
+
+waitRain: 'Wait ${pluralize(minutes, "minute", "minutes")} before making next Rain'
+groupPermitAdminOnly: "Restricted usage to Admins only state:"
+
+# white list
+noWLinChat: 'Group has no registered White Lists'
+WLlist: 'Registered white lists:'
+newWList: 'Registered white list <code>${name}</code>'
+WLempty: 'White list <code>${name}</code> is Empty'
+WLlistUsers: 'White list <code>${name}</code> users:'
+wlistBot: 'Sorry. Can not add BOT to white list !'
+wrongWLparams: 'Wrong params. Call <b>/whiteadd help</b> for more info'
+wrongWLname: 'Wrong name for White List. Word <code>${name}</code> reserved'
+unknownWL: 'Unknown white list <code>${name}</code>'
+WLuseradded: 'User(s) added to <code>${name}</code> list'
+WLuserremoved: 'User(s) removed from <code>${name}</code> list'
+preparingRainWL: 'Preparing rain for <code>${name}</code> white list'
+WLdeleted: 'White list <code>${name}</code> was purged'
+wlistHelp: '/whitelist (or /white ) - view or create white list for rain
+
+Each whitelist belongs only to one chat / group
+
+Note: white list Names are case sensitive! ( Crypto != crypto )
+
+
+Params (space separated, in any order):
+
+- (no-param) (view known white lists for current chat)
+
+- <i>Name</i> / string (create white list / view list contents, if list exists)
+
+------
+
+
+/whiteadd - add user(s) to white list
+
+Params (space separated, in any order):
+
+- <i>Name</i> / string (white list name)
+
+- <i>@UserName</i> / string(s) (add User(s) to white list)
+
+------
+
+
+/whiteremove - remove user(s) from white list
+
+Params (space separated, in any order):
+
+- <i>Name</i> / string (white list name)
+
+- <i>@UserName</i> / string(s) (remove User(s) from white list)
+
+------
+
+
+/whitepurge - delete full list and clear contents
+
+Params (space separated, in any order):
+
+- <i>Name</i> / string (white list name)'
+
+walletMenu: ' 💳 Wallet Menu
+
+
+Here you can check, stake and move your funds'
+
+infoMenu: ' ℹ️ Information
+
+
+- 🤝 Projects - view info about supported coins / projects;
+
+- 📧 Contact - send reports, questions or proposals to author'
+
+donateMessage: "Select coin for donation"
+projectsMenu: "Choose project for more <b>info</b> ℹ️"
+projectInfoMessage: "🌎 ${link}
+
+
+🏷 ${type}: <code>${token}</code>
+
+
+🔽 Min values:
+
+ 🔸 <b>Tip:</b> ${tip} ${token}
+
+ 🔸 <b>Rain:</b> ${rain} ${token}
+
+ 🔸 <b>Pot:</b> ${pot} ${token}
+
+
+${text}"
+messageSent: "Message forwarded to Support. Thank you."
+enterMessage: "If you want to
+
+- report an Issue
+
+- ask a Quiestion
+
+- make a proposal
+
+just send me a message"
+enterDonateValue: 'Please select value for Donation'
+donationSent: 'Donation sent. Thank you!
+
+Value: ${val} ${token}
+
+TxHash: <a href="${txExplorer}${hash}">TxHashLink</a>'
+messageFooter: '
+
+- - - -
+
+buy me a coffee, tip the @Crypto_TheBot'

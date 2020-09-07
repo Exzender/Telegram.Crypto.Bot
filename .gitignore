@@ -1,0 +1,15 @@
+# Project exclude paths
+/node_modules/
+/package-lock.json
+/cryptpBot_errors.log
+/cryptpBot_info.log
+/exceptions.log
+/twitter_keys.txt
+/images/
+/bkp/translation_vi.yaml
+/bkp/translation_fr.yaml
+/rpc_list.txt
+/logs/
+/dumps/
+/click.ad.bots.txt
+/вопросы_развития.txt
